@@ -1,0 +1,23 @@
+13/06/22 11:18  ExecuteScalar Exception Message: The client was unable to establish a connection because of an error during connection initialization process before login. Possible causes include the following:  the client tried to connect to an unsupported version of SQL Server; the server was too busy to accept new connections; or there was a resource limitation (insufficient memory or maximum allowed connections) on the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)
+. InnerException: An existing connection was forcibly closed by the remote host
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+13/06/22 12:01  GetDataSet Exception Message: Incorrect syntax near ','.
+. extraInfo: sql: workerDepartments.departmentId, workerDepartments.canSee, departmentName FROM workerDepartments inner join departments on workerDepartments.departmentId = departments.id WHERE [workerId] = @workerId order by departmentName;
+
+13/06/22 16:51  ExecuteNonQuery Exception Message: Invalid column name 'False'.
+Invalid column name 'False'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+Invalid column name 'True'.
+. extraInfo: sql: Update workerDepartments Set [canSee]=False WHERE workerID=@workerID AND departmentId=13;Update workerDepartments Set [canSee]=False WHERE workerID=@workerID AND departmentId=5;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=14;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=7;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=2;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=11;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=9;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=10;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=12;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=6;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=8;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=15;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=3;Update workerDepartments Set [canSee]=True WHERE workerID=@workerID AND departmentId=4;
+

@@ -1,0 +1,8 @@
+21/06/22 15:50  ExecuteScalar Exception Message: The client was unable to establish a connection because of an error during connection initialization process before login. Possible causes include the following:  the client tried to connect to an unsupported version of SQL Server; the server was too busy to accept new connections; or there was a resource limitation (insufficient memory or maximum allowed connections) on the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)
+. InnerException: An existing connection was forcibly closed by the remote host
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+21/06/22 15:51  ExecuteScalar Exception Message: The client was unable to establish a connection because of an error during connection initialization process before login. Possible causes include the following:  the client tried to connect to an unsupported version of SQL Server; the server was too busy to accept new connections; or there was a resource limitation (insufficient memory or maximum allowed connections) on the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)
+. InnerException: An existing connection was forcibly closed by the remote host
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+

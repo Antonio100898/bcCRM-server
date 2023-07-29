@@ -1,0 +1,9 @@
+22/06/22 13:29  ExecuteScalar Exception Message: Invalid column name 'workerId'.
+. extraInfo: sql: SELECT [shluha] FROM workers WHERE [workerId]=@workerId;
+
+22/06/22 13:30  ExecuteScalar Exception Message: Invalid column name 'workerId'.
+. extraInfo: sql: SELECT [shluha] FROM workers WHERE [workerId]=@workerId;
+
+22/06/22 13:32  ExecuteScalar Exception Message: Invalid column name 'workerId'.
+. extraInfo: sql: SELECT [shluha] FROM workers WHERE [workerId]=@workerId;
+

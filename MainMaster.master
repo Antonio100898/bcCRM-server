@@ -1,0 +1,401 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainMaster.master.cs" Inherits="MainMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Beecomm CRM</title>
+    <link rel="shortcut icon" href="Pics/BeecommLogoIco.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- jquery - Needed For TimePicker -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+    <!--BootStrap For Menu In Header- Need To Be In Top Of Page!! -->
+    <%--<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>--%>
+
+
+    <!-- BootStrap -->
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />--%>
+    <link rel="stylesheet" href="Style/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
+    <!-- DateTime Pickers    -->
+    <link rel="stylesheet" type="text/css" href="./Scripts/jquery.datetimepicker.css" />
+    <script src="Scripts/build/jquery.datetimepicker.full.js"></script>
+    <link href="Style/myCss.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .navbar-right {
+            margin-right: 0px;
+        }
+    </style>
+
+    <%--</style>--%>
+    <%--<script src="Scripts/charts/Chart.js" type="text/javascript"></script>--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" dir="rtl">
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <div class="container-fluid alert-info">
+            <table style="text-align: center; width: 100%" border="1" class=" col-sm-12 col-md-12 col-lg-12">
+                <tr>
+                    <td>
+                        <asp:Label ID="Label29" runat="server" Text="ממתין"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Label ID="Label30" runat="server" Text="בטיפול"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Label ID="Label31" runat="server" Text="אני פתחתי"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label18" runat="server" Text="טכני"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label19" runat="server" Text="תוכנה"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label2" runat="server" Text="dejavoo"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label20" runat="server" Text="תפריטים"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label21" runat="server" Text="איפוסים"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label22" runat="server" Text="שדרוגים"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label23" runat="server" Text="חשבונות"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label24" runat="server" Text="שיווק"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label1" runat="server" Text="יוזרים"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label25" runat="server" Text="לחזור ללקוח"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label26" runat="server" Text="ציוד"></asp:Label>
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:Label ID="Label27" runat="server" Text="שרת משלוחים"></asp:Label>
+                    </td>
+                    <td class="col-lg-1">
+                        <asp:Label ID="Label15" runat="server" Text="פתוח"></asp:Label>
+                    </td>
+                    <td class="col-lg-1">
+                        <asp:Label ID="Label17" runat="server" Text="היום"></asp:Label>
+                    </td>
+                    <td rowspan="2" class="hidden-xs">
+                        <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-primary" PostBackUrl="~/Default.aspx" OnClick="LinkButton1_Click">התנתק</asp:LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:LinkButton ID="btnWaitingProblems" runat="server" OnClick="btnWaitingProblems_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td>
+                        <asp:LinkButton ID="btnHandlingProblems" runat="server" OnClick="btnHandlingProblems_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td>
+                        <asp:LinkButton ID="btnIOpened" runat="server" OnClick="btnIOpened_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnTech" runat="server" OnClick="btnTech_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnSoftware" runat="server" OnClick="btnSoftware_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnDejavoo" runat="server" OnClick="btnDejavoo_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnMenus" runat="server" OnClick="btnMenus_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnResets" runat="server" OnClick="btnResets_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnUpgrades" runat="server" OnClick="btnUpgrades_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnCounting" runat="server" OnClick="btnCounting_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnMarketing" runat="server" OnClick="btnMarketing_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnUsers" runat="server" OnClick="btnUsers_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnReturnToClient" runat="server" OnClick="btnReturnToClient_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnDevelopment" runat="server" OnClick="btnDevelopment_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td class="hidden-xs">
+                        <asp:LinkButton ID="btnReportToYaron" runat="server" OnClick="btnReportToYaron_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td>
+                        <asp:LinkButton ID="btnAllProblems" runat="server" OnClick="btnAllProblems_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                    <td>
+                        <asp:LinkButton ID="btnTodayProblems" runat="server" OnClick="btnTodayProblems_Click" Text="0" Font-Size="Large" Font-Bold="true" CssClass="btn btn-info" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="container-fluid alert-info">
+            <nav class="navbar navbar-default alert-info " role="navigation"
+                style="border: 0; border-top: 1px solid #777777; border-bottom: 1px solid #777777; background-color: #ffffff;">
+                <div class="container-fluid" style="padding-right: 0px">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-right: 0px">
+
+                        <ul class="nav navbar-nav navbar-right" style="padding-right: 10px">
+
+                            <% if (((Worker)Session["Worker"]).userTypeId == 1)
+                                { %>
+                            <%--    <li style="border-right: 2px solid silver">
+                                <div style="margin-right: 20px; margin-top: 5px">
+                                    <button type="button" class="btn btn-default img-rounded glyphicon glyphicon-phone-alt" title="עניתי לטלפון" onclick="ShowWorkerInBreak()"></button>
+                                </div>
+                            </li>--%>
+                            <% } %>
+
+                            <%--  <li style="border-right: 2px solid silver">
+                                <div style="margin-right: 20px">
+                                    <img class="img-circle btn" src="Pics/cigarte.png" onclick="WorkerBreakTime(0,1)"  title="לצאת לסיגריה" />
+                                    <img class="img-circle btn" src="Pics/food.png" onclick="WorkerBreakTime(0,2)"  title="לצאת לאכול" />
+                                    <img class="img-circle btn" src="Pics/toilet.png" onclick="WorkerBreakTime(0,3)"  title="לצאת לשירותים" />
+                                    <img class="img-circle btn" src="Pics/beeWork.png" onclick="WorkerBreakTime(1,0)"  title="לחזור מהפסקה" />                                    
+                                </div>
+                            </li>--%>
+
+
+
+                            <li style="border-right: 2px solid silver">
+                                <div style="margin: 5px">
+                                    <input id="txtCallBackToCustomer" placeholder="טלפון לחזור ללקוח" />
+                                    <button type="button" class="btn btn-default" onclick="InsertCallBackClient()">לחזור ללקוח</button>
+                                </div>
+                            </li>
+
+                            <li style="border-right: 2px solid silver;">
+                                <a href="workersCar.aspx" class="glyphicon glyphicon-road"></a></li>
+
+
+
+                            <% if (((Worker)Session["Worker"]).userTypeId == 1)
+                                { %>
+                            <li style="border-right: 2px solid silver;">
+                                <a href="helpPage.aspx" class="glyphicon glyphicon-info-sign"></a></li>
+
+                            <li style="border-right: 2px solid silver;">
+                                <a href="DashBoard.aspx" class="glyphicon glyphicon-signal"></a></li>
+
+
+                            <li style="border-right: 2px solid silver;">
+                                <a href="Settings.aspx" class="glyphicon glyphicon-cog"></a></li>
+                            <% } %>
+
+                            <li style="border-right: 2px solid silver;">
+                                <a href="SettingsBiV3.aspx">V3</a></li>
+
+                            <li style="border-right: 2px solid silver;">
+                                <a href="FindProblem.aspx" class="glyphicon glyphicon-search"></a></li>
+                            <li style="border-right: 2px solid silver;">
+                                <a href="AddProblemNew.aspx">תקלה חדשה</a></li>
+
+                            <li style="border-right: 2px solid silver">
+                                <asp:Image ID="imgWorker" runat="server" Width="35px" Height="35px" CssClass="img-rounded" Style="margin-top: 7px; margin-right: 3px" />
+                                <a runat="server" id="lblWorkerName" class="navbar-brand" href="workerPlace.aspx" style="margin-left: 2px"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+        <div>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <%--class="panel-primary alert-warning col-lg-12 Absolute-Center is-Responsive navbar-fixed-top"--%>
+                    <div id="divMsg" name="divMsg" runat="server" class="web_dialog">
+                        <table style="width: 100%">
+                            <tr>
+                                <td class="web_dialog_title">הודעות</td>
+                                <td class="web_dialog_title align_left">
+                                    <a href="#" onclick="HideDiv('divMsg')">ביטול</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <div>
+                                    <asp:GridView ID="grdMsgs" runat="server" DataSourceID="dsMsgs" AutoGenerateColumns="False" DataKeyNames="id">
+                                        <Columns>
+                                            <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
+                                            <asp:BoundField DataField="workerNme" HeaderText="נשלח" ReadOnly="True" SortExpression="workerNme" />
+                                            <asp:BoundField DataField="msg" HeaderText="הודעה" SortExpression="msg" />
+                                            <asp:BoundField DataField="commitTime" HeaderText="זמן השליחה" SortExpression="commitTime" />
+                                        </Columns>
+                                    </asp:GridView>
+                                    <asp:SqlDataSource runat="server" ID="dsMsgs" ConnectionString='<%$ ConnectionStrings:BeecommDBConnectionString %>' SelectCommand="SELECT Msgs.id, workers.firstName + N' ' + workers.lastName AS workerNme, Msgs.msg, Msgs.commitTime FROM Msgs INNER JOIN workers ON Msgs.workerId = workers.id WHERE (Msgs.Opened = 0) AND (Msgs.toWorkerId = @toWorkerId) ORDER BY Msgs.commitTime">
+                                        <SelectParameters>
+                                            <asp:SessionParameter DefaultValue="0" Name="toWorkerId" SessionField="WorkerId" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
+                                </div>
+                            </tr>
+                            <tr>
+                                <asp:Button ID="btnCloseMsg" runat="server" Text="סגור" Width="100%" CssClass="btn-primary center-block" Font-Size="XX-Large" OnClick="btnCloseMsg_Click" />
+                            </tr>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+
+    </form>
+
+    <%--    <div class="modal fade" id="divWorkerBreak" tabindex="-1" role="dialog" aria-labelledby="divProblemLogTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title text-center" id="divWorkerBreakTitle">יצאתי להפסקה</h4>
+                </div>
+                <div class="modal-body">
+                    <p>הלכתי לי, חפשו אותי, אני אינני פה</p>
+                    <button class="btn btn-primary col-lg-12">חזרתי מהפסקה</button>
+                </div>                
+            </div>
+        </div>
+    </div>--%>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = window.location.pathname;
+            var substr = url.split('/');
+            var urlaspx = substr[substr.length - 1];
+            $('.nav').find('.active').removeClass('active');
+            $('.nav li a').each(function () {
+                if (this.href.indexOf(urlaspx) >= 0) {
+                    $(this).parent().addClass('active');
+                }
+            });
+        });
+
+        function InsertCallBackClient() {
+            var phone = $("[id$=txtCallBackToCustomer]").val();
+            if (phone.length == 0) {
+                return;
+            }
+
+            console.log("phone: " + phone);
+
+            $.ajax({
+                type: "POST",
+                url: "TestWebMethod.aspx/AppendCallBackToCustomer",
+                data: '{phone: "' + phone + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                failure: function (response) { alert(response.d); }
+            });
+
+            $("[id$=txtCallBackToCustomer]").val("");
+        }
+
+        function ShowMissingIP() {
+            SendPost('GetMissingIpPlace', '{}', function (response) {
+
+                //alert(response.d);
+                var s = response.d;
+                var a = s.split(";");
+                var id = a[0];
+                var placeName = a[1];
+                var ip = prompt("מה האי פי של " + placeName, "");
+                if (ip == null || ip == "") {
+
+                } else {
+                    //UpdatePlaceID(int placeId, string ip)
+                    SendPost('UpdatePlaceID', '{placeId: ' + id + ', ip: "' + ip + '"}');
+                }
+
+            });
+        }
+
+
+        function WorkerBreakTime(inOrOut, breakType) {
+            SendPost('WorkerBreakTime', '{inOrOut:' + inOrOut + ', breakType:' + breakType + '}', function (response) {
+                var s = response.d;
+                if (inOrOut == 0) {
+                    $("#divWorkerBreak").modal();
+                }
+            });
+        }
+
+
+        function SendPost(commandName, dataInfo, onsuccess, onError) {
+            //showLoader();
+            $.ajax({
+                type: "POST",
+                url: "TestWebMethod.aspx/" + commandName,
+                data: dataInfo,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: onsuccess,
+                error: onError
+            });
+        }
+
+        function ShowWorkerInBreak() {
+            $("#cboWorkerBreakWorkers").val(1);
+            $("#cboWorkerBreakWorkers").val(0);
+            var d = new Date();
+            console.log(d.format("MM/dd/yyyy"));
+            $("#txtWorkerBreakStartDate").val(d.format("yyyy-MM-dd"));
+
+            d = new Date(d.valueOf());
+            d.setDate(d.getDate() + 1);
+            $("#txtWorkerBreakFinishDate").val(d.format("yyyy-MM-dd"));
+
+
+        }
+    </script>
+
+</body>
+</html>

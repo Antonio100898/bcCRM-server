@@ -1,0 +1,88 @@
+28/04/22 05:00  GetDataSet Exception Message: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+. InnerException: The semaphore timeout period has expired
+. extraInfo: sql: SELECT problemsClose.id, problemsClose.workerId, problemsClose.phoneId, problemsClose.phone, problemsClose.ip, problemsClose.placeNameId, problemsClose.placeName, problemsClose.customerName, problemsClose.problemDesc, problemsClose.problemSolution, problemsClose.statusId, problemsClose.emergencyId, problemsClose.departmentId, problemsClose.reportToYaron, problemsClose.startTime, problemsClose.finishTime, problemStatus.statusName, workers.firstName + N' ' + workers.lastName AS workerName, departments.departmentName, emergencyTypes.emergencyName, problemsClose.toWorker, workers_1.firstName + N' ' + workers_1.lastName AS toWorkerName, t.problemId as pFileId FROM problemsClose LEFT JOIN workers ON problemsClose.workerId = workers.id INNER JOIN problemStatus ON problemsClose.statusId = problemStatus.id INNER JOIN  emergencyTypes ON problemsClose.emergencyId = emergencyTypes.id INNER JOIN  departments ON problemsClose.departmentId = departments.id LEFT JOIN  workers AS workers_1 ON problemsClose.toWorker = workers_1.id LEFT JOIN (SELECT [problemId] FROM [dbo].[problemFiles] Group by problemId) as t on problemsClose.id = t.problemId WHERE workerId = 1 AND statusId<>2 ORDER BY problemsClose.startTime DESC
+
+28/04/22 13:20  GetDataSet Exception Message: The parameterized query '(@workerKey nvarchar(4000))SELECT [id] FROM workers WHERE [guidK' expects the parameter '@workerKey', which was not supplied.
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@workerKey;
+
+28/04/22 13:20  GetDataSet Exception Message: The parameterized query '(@workerKey nvarchar(4000))SELECT [id] FROM workers WHERE [guidK' expects the parameter '@workerKey', which was not supplied.
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@workerKey;
+
+28/04/22 13:20  GetDataSet Exception Message: The parameterized query '(@workerKey nvarchar(4000))SELECT [id] FROM workers WHERE [guidK' expects the parameter '@workerKey', which was not supplied.
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@workerKey;
+
+28/04/22 13:33  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:33  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:33  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:34  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:35  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:36  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:36  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:36  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:36  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:36  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:36  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:37  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:37  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:38  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 13:39  ExecuteScalar Exception Message: Must declare the scalar variable "@guidKey".
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+28/04/22 15:39  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@workerId int,@phoneId int,@phone nvarchar(4000),@ip' expects the parameter '@phone', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+28/04/22 15:52  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@ip nvarchar(6),@placeName nvarchar(8),@customerName' expects the parameter '@problemSolution', which was not supplied.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [reportToYaron]= @reportToYaron,[finishTime]= @finishTime WHERE (id = @id);
+

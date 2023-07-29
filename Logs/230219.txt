@@ -1,0 +1,11 @@
+19/02/23 12:34  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+. InnerException: The network path was not found
+. extraInfo: sql: SELECT [id], [groupName], [databaseName] FROM [dbo].[Groups] ORDER BY [groupName];
+
+19/02/23 15:49  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+. InnerException: The network path was not found
+. extraInfo: sql: SELECT [id], [groupName], [databaseName] FROM [dbo].[Groups] ORDER BY [groupName];
+
+19/02/23 15:55  GetDataSet Exception Message: Invalid column name 'shiftType'.
+. extraInfo: sql: SELECT [id],[workerId],[date],[shiftType],[remark],[cancel] FROM [dbo].[shiftPlans] WHERE ([date] >= @startTime AND[date] < @finishTime) AND workerId= @workerId AND cancel = 0;
+

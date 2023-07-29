@@ -1,0 +1,117 @@
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+
+06/03/23 16:54  ExecuteNonQuery Exception Message: The parameterized query '(@shiftTypeId int,@jobTypeId int,@workerId int,@startDate dateti' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address);
+

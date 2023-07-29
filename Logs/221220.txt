@@ -1,0 +1,14 @@
+20/12/22 12:18  ExecuteNonQuery Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+. InnerException: No such host is known
+. extraInfo: sql: INSERT INTO [dbo].[errLogs]([voidName],[errMsg],[extraInfo]) VALUES(@voidName,@errMsg,@extraInfo);
+
+20/12/22 12:18  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+. InnerException: No such host is known
+. extraInfo: sql: SELECT [id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId],[shluha], [active], [imgPath], [wDepartmentId], [jobTitle], [teudatZehut] FROM workers WHERE [userName]=@userName AND [password]=@password;
+
+20/12/22 12:21  GetDataSet Exception Message: Incorrect syntax near 'dbo'.
+. extraInfo: sql: SELECT [workerId], firstName + ' ' + lastName as workerName, Sum(1) as c, DATEPART(hour, startTime) as hFROM[dbo].[problemsClose] inner join workers on[problemsClose].workerId = workers.id WHERE [startTime] >= @startTime group by [workerId], firstName +' ' + lastName order by workerName, h
+
+20/12/22 12:23  GetDataSet Exception Message: Column 'dbo.problemsClose.startTime' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+. extraInfo: sql: SELECT [workerId], firstName + ' ' + lastName as workerName, Sum(1) as c, DATEPART(hour, startTime) as h FROM[dbo].[problemsClose] inner join workers on[problemsClose].workerId = workers.id WHERE [startTime] >= @startTime group by [workerId], firstName +' ' + lastName order by workerName, h
+

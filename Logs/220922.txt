@@ -1,0 +1,6 @@
+22/09/22 11:40  ExecuteNonQuery Exception Message: The parameterized query '(@id int,@firstName nvarchar(3),@lastName nvarchar(3),@phone nva' expects the parameter '@teudatZehut', which was not supplied.
+. extraInfo: sql: UPDATE [dbo].[workers] Set [firstName]= @firstName, [lastName]= @lastName, [phone]= @phone, [userName]= @userName, [password]= @password, [shluha] = @shluha, [active]= @active, [userTypeId]= @userTypeId, [jobTitle]= @jobTitle, [carType] = @carType, [carNumber]= @carNumber, [workerLevel]= @workerLevel, [teudatZehut]= @teudatZehut WHERE (id = @id);
+
+22/09/22 11:41  ExecuteNonQuery Exception Message: The parameterized query '(@id int,@firstName nvarchar(3),@lastName nvarchar(3),@phone nva' expects the parameter '@teudatZehut', which was not supplied.
+. extraInfo: sql: UPDATE [dbo].[workers] Set [firstName]= @firstName, [lastName]= @lastName, [phone]= @phone, [userName]= @userName, [password]= @password, [shluha] = @shluha, [active]= @active, [userTypeId]= @userTypeId, [jobTitle]= @jobTitle, [carType] = @carType, [carNumber]= @carNumber, [workerLevel]= @workerLevel, [teudatZehut]= @teudatZehut WHERE (id = @id);
+

@@ -1,0 +1,4 @@
+26/04/22 11:10  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_Places". The conflict occurred in database "BeecommDB", table "dbo.Places", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeNameId]= @placeNameId,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[emergencyId]= @emergencyId,[departmentId]= @departmentId, [reportToYaron]= @reportToYaron,[finishTime]= @finishTime WHERE (id = @id);
+

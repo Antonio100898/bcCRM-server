@@ -1,0 +1,3 @@
+07/03/23 15:50  ExecuteNonQuery Exception Message: Must declare the scalar variable "@startDate".
+. extraInfo: sql: UPDATE [dbo].[shiftPlans] SET [workerId] = @workerId, [shiftTypeId] = @shiftTypeId, [remark] = @remark, [date] = @startDate, [cancel] = @cancel WHERE id = @id
+

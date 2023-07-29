@@ -1,0 +1,4 @@
+13/04/22 15:20  GetDataSet Exception Message: A connection was successfully established with the server, but then an error occurred during the login process. (provider: SSL Provider, error: 0 - An existing connection was forcibly closed by the remote host.)
+. InnerException: An existing connection was forcibly closed by the remote host
+. extraInfo: sql: SELECT [id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId],[shluha], [active], [imgPath] FROM workers WHERE [userName]=@userName AND [password]=@password;
+

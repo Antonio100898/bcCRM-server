@@ -1,0 +1,6 @@
+25/04/22 16:21  ExecuteScalar Exception Message: The parameterized query '(@phone nvarchar(4000))INSERT INTO [dbo].[problemsIDs] ([phone])' expects the parameter '@phone', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsIDs] ([phone]) VALUES (@phone); SELECT SCOPE_IDENTITY()
+
+25/04/22 16:21  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@workerId int,@phoneId int,@phone nvarchar(4000),@ip' expects the parameter '@phone', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[problemDesc],[problemSolution],[toWorker],[statusId],[emergencyId],[departmentId],[reportToYaron],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @problemDesc, @problemSolution, @toWorker, @statusId, @emergencyId, @departmentId, @reportToYaron, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+

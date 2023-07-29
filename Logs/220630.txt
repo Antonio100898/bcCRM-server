@@ -1,0 +1,4 @@
+30/06/22 15:57  ExecuteNonQuery Exception Message: String or binary data would be truncated.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[workers] SET [imgPath] = @imgPath WHERE (id = @id)
+

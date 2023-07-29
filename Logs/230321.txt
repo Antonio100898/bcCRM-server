@@ -1,0 +1,9 @@
+21/03/23 11:35  GetDataSet Exception Message: Incorrect syntax near '19'.
+. extraInfo: sql: SELECT * FROM ( SELECT [workerId], firstName + ' ' + lastName as workerName, convert(varchar, date, 105) as sDate FROM[dbo].shiftPlans inner join workers on shiftPlans.workerId = workers.id WHERE date >= '2023/03/19' AND date <= '2023/03/25' AND cancel = 0 ) t PIVOT( COUNT([workerId]) FOR[sDate] IN( 19-03-2023, 19-03-2023, 19-03-2023, 19-03-2023, 19-03-2023, 19-03-2023, 19-03-2023) AS pivot_table ORDER by workerName; 
+
+21/03/23 11:39  GetDataSet Exception Message: Incorrect syntax near the keyword 'AS'.
+. extraInfo: sql: SELECT * FROM ( SELECT [workerId], firstName + ' ' + lastName as workerName, convert(varchar, date, 105) as sDate FROM[dbo].shiftPlans inner join workers on shiftPlans.workerId = workers.id WHERE date >= @startTime AND date <= @finishTime AND cancel = 0 ) t PIVOT( COUNT([workerId]) FOR[sDate] IN( [19-03-2023], [19-03-2023], [19-03-2023], [19-03-2023], [19-03-2023], [19-03-2023], [19-03-2023]) AS pivot_table ORDER by workerName; 
+
+21/03/23 11:41  GetDataSet Exception Message: Incorrect syntax near the keyword 'AS'.
+. extraInfo: sql: SELECT * FROM ( SELECT [workerId], firstName + ' ' + lastName as workerName, convert(varchar, date, 105) as sDate FROM[dbo].shiftPlans inner join workers on shiftPlans.workerId = workers.id WHERE date >= @startTime AND date <= @finishTime AND cancel = 0 ) t PIVOT( COUNT([workerId]) FOR[sDate] IN( [19-03-2023], [20-03-2023], [21-03-2023], [22-03-2023], [23-03-2023], [24-03-2023], [25-03-2023]) AS pivot_table ORDER by workerName; 
+

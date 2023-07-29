@@ -1,0 +1,3 @@
+20/02/23 14:48  ExecuteNonQuery Exception Message: The parameterized query '(@workerId int,@date datetime,@shiftTypeId int,@remark nvarchar(' expects the parameter '@remark', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[shiftPlans] ([workerId],[date],[shiftTypeId],[remark]) VALUES (@workerId,@date,@shiftTypeId,@remark);
+

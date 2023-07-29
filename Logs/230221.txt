@@ -1,0 +1,6 @@
+21/02/23 13:11  GetDataSet Exception Message: Ambiguous column name 'id'.
+. extraInfo: sql: SELECT [id],[workerId], workers.firstName + ' ' + workers.lastName as workerName,[date],[shiftTypeId],[remark],[cancel] FROM [dbo].[shiftPlans] Inner join Workers On shiftPlans.workerId = Workers.id WHERE ([date] >= @startTime AND[date] < @finishTime)  AND workerId= @workerId  AND cancel = 0;
+
+21/02/23 13:32  ExecuteNonQuery Exception Message: Must declare the scalar variable "@startDate".
+. extraInfo: sql: UPDATE [dbo].[shiftPlans] SET [workerId] = @workerId, [shiftTypeId] = @shiftTypeId, [remark] = @remark, [date] = @startDate, [cancel] = @cancel WHERE id = @id
+

@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="EZShiftAPI" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="EZShiftAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="EZShiftAPI">
+      <s:element name="SendOTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOTPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkOTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkOTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkOTPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkPASS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nScheduleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkPASSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkPASSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployeePASS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployeePASSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateEmployeePASSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ActionCode" type="tns:SyncEmployeeActionCode" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdentificationMode" type="tns:EmployeeIdentificationMode" />
+            <s:element minOccurs="0" maxOccurs="1" name="strIdentificationValue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Employee" type="tns:EZShift_Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SyncEmployeeActionCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="AddNew" />
+          <s:enumeration value="Update" />
+          <s:enumeration value="Delete" />
+          <s:enumeration value="RestoreDeleted" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="EmployeeIdentificationMode">
+        <s:restriction base="s:string">
+          <s:enumeration value="InternalID" />
+          <s:enumeration value="Username" />
+          <s:enumeration value="Number" />
+          <s:enumeration value="NotRelevant" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="EZShift_Employee">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="iScheduleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iInternalID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="strUsername" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="iNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="strFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strLastName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="bIsMale" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="bIsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="bIsDeleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtRegistered" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtDeleted" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtBirth" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="iRequestsPoliciesID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iDblVar" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="lPositions" type="tns:ArrayOfEZShift_Employee_Position" />
+          <s:element minOccurs="0" maxOccurs="1" name="lGroups" type="tns:ArrayOfEZShift_Employee_Group" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEZShift_Employee_Position">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EZShift_Employee_Position" nillable="true" type="tns:EZShift_Employee_Position" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EZShift_Employee_Position">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strPositionTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strLevelTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="iPositionID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iLevelID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="bIsSecondary" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtUntil" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEZShift_Employee_Group">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EZShift_Employee_Group" nillable="true" type="tns:EZShift_Employee_Group" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EZShift_Employee_Group">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strGroupTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="iGroupID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtUntil" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SyncEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SyncEmployeeResult" type="tns:SyncEmployeeReturnCode" />
+            <s:element minOccurs="1" maxOccurs="1" name="iEmpID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SyncEmployeeReturnCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="SystemError" />
+          <s:enumeration value="Unauthenticated" />
+          <s:enumeration value="InvalidArgument_strIdentificationValue" />
+          <s:enumeration value="InvalidArgument_strFirstNameValue" />
+          <s:enumeration value="InvalidArgument_iScheduleID" />
+          <s:enumeration value="InvalidArgument_iNumber" />
+          <s:enumeration value="InvalidArgument_strUsername" />
+          <s:enumeration value="NoDataToUpdate" />
+          <s:enumeration value="EmployeeNotListed" />
+          <s:enumeration value="LicenseNotSufficient" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetLogsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIncludeManagerLogins" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIncludeEmployeesLogins" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIncludeScheduleActionLog" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLogsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLogsInfoResult" type="tns:ErrorCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="Entries" type="tns:ArrayOfEZShift_LogEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ErrorCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="Failed" />
+          <s:enumeration value="SystemError" />
+          <s:enumeration value="Unauthenticated" />
+          <s:enumeration value="NotListed" />
+          <s:enumeration value="InvalidArgument" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfEZShift_LogEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EZShift_LogEntry" nillable="true" type="tns:EZShift_LogEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EZShift_LogEntry">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="iScheduleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iUserID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEntryType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtTimeStamp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="strVar1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strVar2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strVar3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strVar4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strVar5" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmployeesList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIncludeDeleted" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetEmployeesListResult" type="tns:ErrorCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="Employees" type="tns:ArrayOfEZShift_Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEZShift_Employee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EZShift_Employee" nillable="true" type="tns:EZShift_Employee" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAttendedTimes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtUntil" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttendedTimesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAttendedTimesResult" type="tns:ErrorCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="Times" type="tns:ArrayOfEZShift_Attended" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEZShift_Attended">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EZShift_Attended" nillable="true" type="tns:EZShift_Attended" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EZShift_Attended">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="iScheduleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iEmployeeInternalID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmployeeUsername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmployeeNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmployeeFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmployeeLastName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtAttStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtAttEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtActualClockIN" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtActualClockOUT" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="iPositionAndLevelID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAssignedShifts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtUntil" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="bGetPublishedShiftsOnly" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bGetExtendedShiftDetalis" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssignedShiftsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAssignedShiftsResult" type="tns:ErrorCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="Shifts" type="tns:ArrayOfEZShift_Shift" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEZShift_Shift">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EZShift_Shift" nillable="true" type="tns:EZShift_Shift" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EZShift_Shift">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="iScheduleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iEmployeeInternalID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmployeeUsername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmployeeNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmployeeFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmployeeLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strShiftTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtShiftStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtShiftEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="iPosiitonAndLevelID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="strShiftPositionAndLevelDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="bShiftYellowMark" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="bShiftRedMark" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="bShiftGreenMark" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="bShiftBlueMark" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="iCategoryA" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iCategoryB" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iCategoryC" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="iOrderID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckEmployeeCredentials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdentificationMode" type="tns:EmployeeIdentificationMode" />
+            <s:element minOccurs="0" maxOccurs="1" name="strIdentificationValue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bReturnEmployeeInfo" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckEmployeeCredentialsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckEmployeeCredentialsResult" type="tns:ErrorCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="Employee" type="tns:EZShift_Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccessToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdentificationMode" type="tns:EmployeeIdentificationMode" />
+            <s:element minOccurs="0" maxOccurs="1" name="strIdentificationValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccessTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAccessTokenResult" type="tns:ErrorCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAccessToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncEmployeeToClock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncEmployeeToClockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SyncEmployeeToClockResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendOTPSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOTP" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkOTPSoapIn">
+    <wsdl:part name="parameters" element="tns:checkOTP" />
+  </wsdl:message>
+  <wsdl:message name="checkOTPSoapOut">
+    <wsdl:part name="parameters" element="tns:checkOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkPASSSoapIn">
+    <wsdl:part name="parameters" element="tns:checkPASS" />
+  </wsdl:message>
+  <wsdl:message name="checkPASSSoapOut">
+    <wsdl:part name="parameters" element="tns:checkPASSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeePASSSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeePASS" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeePASSSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeePASSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncEmployee" />
+  </wsdl:message>
+  <wsdl:message name="SyncEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLogsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLogsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetLogsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLogsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeesList" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttendedTimesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttendedTimes" />
+  </wsdl:message>
+  <wsdl:message name="GetAttendedTimesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttendedTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssignedShiftsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssignedShifts" />
+  </wsdl:message>
+  <wsdl:message name="GetAssignedShiftsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssignedShiftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckEmployeeCredentialsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckEmployeeCredentials" />
+  </wsdl:message>
+  <wsdl:message name="CheckEmployeeCredentialsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckEmployeeCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccessToken" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccessTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncEmployeeToClockSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncEmployeeToClock" />
+  </wsdl:message>
+  <wsdl:message name="SyncEmployeeToClockSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncEmployeeToClockResponse" />
+  </wsdl:message>
+  <wsdl:portType name="APISoap">
+    <wsdl:operation name="SendOTP">
+      <wsdl:input message="tns:SendOTPSoapIn" />
+      <wsdl:output message="tns:SendOTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkOTP">
+      <wsdl:input message="tns:checkOTPSoapIn" />
+      <wsdl:output message="tns:checkOTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkPASS">
+      <wsdl:input message="tns:checkPASSSoapIn" />
+      <wsdl:output message="tns:checkPASSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeePASS">
+      <wsdl:input message="tns:UpdateEmployeePASSSoapIn" />
+      <wsdl:output message="tns:UpdateEmployeePASSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncEmployee">
+      <wsdl:input message="tns:SyncEmployeeSoapIn" />
+      <wsdl:output message="tns:SyncEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogsInfo">
+      <wsdl:input message="tns:GetLogsInfoSoapIn" />
+      <wsdl:output message="tns:GetLogsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesList">
+      <wsdl:input message="tns:GetEmployeesListSoapIn" />
+      <wsdl:output message="tns:GetEmployeesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedTimes">
+      <wsdl:input message="tns:GetAttendedTimesSoapIn" />
+      <wsdl:output message="tns:GetAttendedTimesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedShifts">
+      <wsdl:input message="tns:GetAssignedShiftsSoapIn" />
+      <wsdl:output message="tns:GetAssignedShiftsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmployeeCredentials">
+      <wsdl:input message="tns:CheckEmployeeCredentialsSoapIn" />
+      <wsdl:output message="tns:CheckEmployeeCredentialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessToken">
+      <wsdl:input message="tns:GetAccessTokenSoapIn" />
+      <wsdl:output message="tns:GetAccessTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncEmployeeToClock">
+      <wsdl:input message="tns:SyncEmployeeToClockSoapIn" />
+      <wsdl:output message="tns:SyncEmployeeToClockSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="APISoap" type="tns:APISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendOTP">
+      <soap:operation soapAction="EZShiftAPI/SendOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOTP">
+      <soap:operation soapAction="EZShiftAPI/checkOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPASS">
+      <soap:operation soapAction="EZShiftAPI/checkPASS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeePASS">
+      <soap:operation soapAction="EZShiftAPI/UpdateEmployeePASS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncEmployee">
+      <soap:operation soapAction="EZShiftAPI/SyncEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogsInfo">
+      <soap:operation soapAction="EZShiftAPI/GetLogsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesList">
+      <soap:operation soapAction="EZShiftAPI/GetEmployeesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedTimes">
+      <soap:operation soapAction="EZShiftAPI/GetAttendedTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedShifts">
+      <soap:operation soapAction="EZShiftAPI/GetAssignedShifts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmployeeCredentials">
+      <soap:operation soapAction="EZShiftAPI/CheckEmployeeCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessToken">
+      <soap:operation soapAction="EZShiftAPI/GetAccessToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncEmployeeToClock">
+      <soap:operation soapAction="EZShiftAPI/SyncEmployeeToClock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="APISoap12" type="tns:APISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendOTP">
+      <soap12:operation soapAction="EZShiftAPI/SendOTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOTP">
+      <soap12:operation soapAction="EZShiftAPI/checkOTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPASS">
+      <soap12:operation soapAction="EZShiftAPI/checkPASS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeePASS">
+      <soap12:operation soapAction="EZShiftAPI/UpdateEmployeePASS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncEmployee">
+      <soap12:operation soapAction="EZShiftAPI/SyncEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogsInfo">
+      <soap12:operation soapAction="EZShiftAPI/GetLogsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesList">
+      <soap12:operation soapAction="EZShiftAPI/GetEmployeesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedTimes">
+      <soap12:operation soapAction="EZShiftAPI/GetAttendedTimes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedShifts">
+      <soap12:operation soapAction="EZShiftAPI/GetAssignedShifts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmployeeCredentials">
+      <soap12:operation soapAction="EZShiftAPI/CheckEmployeeCredentials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessToken">
+      <soap12:operation soapAction="EZShiftAPI/GetAccessToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncEmployeeToClock">
+      <soap12:operation soapAction="EZShiftAPI/SyncEmployeeToClock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="API">
+    <wsdl:port name="APISoap" binding="tns:APISoap">
+      <soap:address location="https://manager.ezshift.co.il/api.asmx" />
+    </wsdl:port>
+    <wsdl:port name="APISoap12" binding="tns:APISoap12">
+      <soap12:address location="https://manager.ezshift.co.il/api.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

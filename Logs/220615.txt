@@ -1,0 +1,4 @@
+15/06/22 10:58  GetDataSet Exception Message: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+. InnerException: The semaphore timeout period has expired
+. extraInfo: sql: SELECT [id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId],[shluha], [active], [imgPath] FROM workers WHERE [userName]=@userName AND [password]=@password;
+

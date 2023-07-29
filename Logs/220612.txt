@@ -1,0 +1,7 @@
+12/06/22 10:19  GetDataSet Exception Message: Incorrect syntax near 'workerDepartments'.
+. extraInfo: sql: SELECT sum(1) as pCount, Sum(IIF(workerId=1,1,0)) as meCount, Sum(IIF(toWorker=1,1,0)) as onMeCount, Sum(IIF([startTime]>=GETDATE()-1,1,0)) as todayCount FROM [dbo].[problemsClose] WHERE statusId<>2;Select id from [dbo].[TodayProblemsCount]SELECT [problemsClose].[departmentId],departmentName,sum(1) as pCount FROM [dbo].[problemsClose] inner join [workerDepartments] on [problemsClose].[departmentId] = [workerDepartments].[departmentId] inner join departments on [workerDepartments].[departmentId]= departments.id WHERE statusId<>2 AND (workerDepartments.workerId=@workerId) Group by [problemsClose].[departmentId],departmentNameSELECT [workerDepartments].[departmentId],departmentName FROM [workerDepartments] inner join departments on [workerDepartments].[departmentId]= departments.id WHERE (workerDepartments.workerId = @workerId);
+
+12/06/22 16:22  ExecuteNonQuery Exception Message: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_Phones". The conflict occurred in database "BeecommDB", table "dbo.Phones", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+

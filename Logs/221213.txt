@@ -1,0 +1,3 @@
+13/12/22 16:10  ExecuteNonQuery Exception Message: ExecuteNonQuery: CommandText property has not been initialized
+. extraInfo: sql: 
+

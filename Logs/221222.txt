@@ -1,0 +1,18 @@
+22/12/22 11:00  ExecuteNonQuery Exception Message: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone);
+
+22/12/22 11:00  ExecuteNonQuery Exception Message: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone);
+
+22/12/22 11:01  ExecuteNonQuery Exception Message: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone);
+
+22/12/22 11:44  ExecuteNonQuery Exception Message: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone);
+
+22/12/22 11:44  ExecuteNonQuery Exception Message: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone);
+
+22/12/22 11:44  ExecuteNonQuery Exception Message: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+. extraInfo: sql: INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone]) VALUES (@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone);
+

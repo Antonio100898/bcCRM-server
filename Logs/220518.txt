@@ -1,0 +1,6 @@
+18/05/22 15:36  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@ip nvarchar(5),@placeName nvarchar(4),@customerName' expects the parameter '@problemSolution', which was not supplied.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [reportToYaron]= @reportToYaron,[finishTime]= @finishTime WHERE (id = @id);
+
+18/05/22 15:39  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@ip nvarchar(5),@placeName nvarchar(4),@customerName' expects the parameter '@problemSolution', which was not supplied.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [reportToYaron]= @reportToYaron,[finishTime]= @finishTime WHERE (id = @id);
+

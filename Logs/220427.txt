@@ -1,0 +1,23 @@
+27/04/22 11:06  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_Places". The conflict occurred in database "BeecommDB", table "dbo.Places", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeNameId]= @placeNameId,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[emergencyId]= @emergencyId,[departmentId]= @departmentId, [reportToYaron]= @reportToYaron,[finishTime]= @finishTime WHERE (id = @id);
+
+27/04/22 14:22  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@workerId int,@phoneId int,@phone nvarchar(10),@ip n' expects the parameter '@problemDesc', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[problemDesc],[problemSolution],[toWorker],[statusId],[emergencyId],[departmentId],[reportToYaron],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @problemDesc, @problemSolution, @toWorker, @statusId, @emergencyId, @departmentId, @reportToYaron, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+27/04/22 14:29  ExecuteNonQuery Exception Message: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_workers". The conflict occurred in database "BeecommDB", table "dbo.workers", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+27/04/22 14:30  ExecuteNonQuery Exception Message: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_toWorker_workers". The conflict occurred in database "BeecommDB", table "dbo.workers", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+27/04/22 14:31  ExecuteNonQuery Exception Message: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_toWorker_workers". The conflict occurred in database "BeecommDB", table "dbo.workers", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+27/04/22 14:45  ExecuteNonQuery Exception Message: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_Phones". The conflict occurred in database "BeecommDB", table "dbo.Phones", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+

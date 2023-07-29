@@ -1,0 +1,3 @@
+20/04/23 13:21  GetDataSet Exception Message: Invalid column name 'workExpensName'.
+. extraInfo: sql: SELECT [workerId], firstName + ' ' + lastName as workerName, ezShiftWorkerCode, Format(startExpenseDate,'yyyy/MM/dd') as eDate, Sum([expenseValue]) as sumExpense, STRING_AGG(workExpensName, ', ') As expensNames FROM [dbo].[workerExpenses] inner join workers on[workerExpenses].workerId = workers.id WHERE startExpenseDate>= @startDate AND startExpenseDate< @finishDate and cancel = 0 Group BY[workerId], firstName +' ' + lastName, ezShiftWorkerCode, Format(startExpenseDate, 'yyyy/MM/dd') ORDER BY workerName, eDate
+

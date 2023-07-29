@@ -1,0 +1,46 @@
+20/06/22 10:51  ExecuteScalar Exception Message: The parameterized query '(@placeName nvarchar(4000))SELECT TOP 1 [id] FROM [dbo].[Places]' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: SELECT TOP 1 [id] FROM [dbo].[Places] WHERE placeName = @placeName
+
+20/06/22 10:51  ExecuteScalar Exception Message: The parameterized query '(@placeName nvarchar(4000),@ip nvarchar(4000))INSERT INTO[dbo].[' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: INSERT INTO[dbo].[Places] ([placeName], [Ip]) VALUES (@placeName,@ip) SELECT SCOPE_IDENTITY()
+
+20/06/22 10:51  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@workerId int,@phoneId int,@phone nvarchar(13),@ip n' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+20/06/22 10:51  ExecuteScalar Exception Message: The parameterized query '(@placeName nvarchar(4000))SELECT TOP 1 [id] FROM [dbo].[Places]' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: SELECT TOP 1 [id] FROM [dbo].[Places] WHERE placeName = @placeName
+
+20/06/22 10:51  ExecuteScalar Exception Message: The parameterized query '(@placeName nvarchar(4000),@ip nvarchar(4000))INSERT INTO[dbo].[' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: INSERT INTO[dbo].[Places] ([placeName], [Ip]) VALUES (@placeName,@ip) SELECT SCOPE_IDENTITY()
+
+20/06/22 10:51  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@ip nvarchar(4000),@placeName nvarchar(4000),@custom' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [reportToYaron]= @reportToYaron,[finishTime]= @finishTime WHERE (id = @id);
+
+20/06/22 14:34  ExecuteScalar Exception Message: A connection was successfully established with the server, but then an error occurred during the login process. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)
+. InnerException: An existing connection was forcibly closed by the remote host
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+
+20/06/22 15:13  ExecuteScalar Exception Message: The parameterized query '(@placeName nvarchar(4000))SELECT TOP 1 [id] FROM [dbo].[Places]' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: SELECT TOP 1 [id] FROM [dbo].[Places] WHERE placeName = @placeName
+
+20/06/22 15:13  ExecuteScalar Exception Message: The parameterized query '(@placeName nvarchar(4000),@ip nvarchar(4000))INSERT INTO[dbo].[' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: INSERT INTO[dbo].[Places] ([placeName], [Ip]) VALUES (@placeName,@ip) SELECT SCOPE_IDENTITY()
+
+20/06/22 15:13  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@workerId int,@phoneId int,@phone nvarchar(9),@ip nv' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+20/06/22 15:14  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@workerId int,@phoneId int,@phone nvarchar(9),@ip nv' expects the parameter '@customerName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+20/06/22 15:14  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@workerId int,@phoneId int,@phone nvarchar(9),@ip nv' expects the parameter '@customerName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+
+20/06/22 15:15  ExecuteScalar Exception Message: The parameterized query '(@placeName nvarchar(4000))SELECT TOP 1 [id] FROM [dbo].[Places]' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: SELECT TOP 1 [id] FROM [dbo].[Places] WHERE placeName = @placeName
+
+20/06/22 15:15  ExecuteScalar Exception Message: The parameterized query '(@placeName nvarchar(4000),@ip nvarchar(4000))INSERT INTO[dbo].[' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: INSERT INTO[dbo].[Places] ([placeName], [Ip]) VALUES (@placeName,@ip) SELECT SCOPE_IDENTITY()
+
+20/06/22 15:15  ExecuteNonQuery Exception Message: The parameterized query '(@id bigint,@workerId int,@phoneId int,@phone nvarchar(8),@ip nv' expects the parameter '@placeName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[problemsClose] ([id],[workerId],[phoneId],[phone],[ip],[placeNameId],[placeName],[customerName],[toWorker],[startTime],[finishTime]) VALUES (@id,@workerId, @phoneId, @phone, @ip, @placeNameId, @placeName, @customerName, @toWorker, @startTime, @finishTime) SELECT SCOPE_IDENTITY()
+

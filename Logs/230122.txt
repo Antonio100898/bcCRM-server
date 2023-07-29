@@ -1,0 +1,6 @@
+22/01/23 14:22  GetDataSet Exception Message: Must declare the scalar variable "@commitTime".
+. extraInfo: sql: SELECT Sum(1) as c FROM [dbo].[problemMsgs]  where problemId=@problemId and commitTime>@commitTime;
+
+22/01/23 15:14  ExecuteNonQuery Exception Message: Incorrect syntax near '('.
+. extraInfo: sql: Update [dbo].[ProblemChatSeenByWorker] SET ([lastTimeSeen]=@lastTimeSeen) WHERE workerID= @workerID AND problemId= @problemId;
+

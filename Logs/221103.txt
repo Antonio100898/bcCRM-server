@@ -1,0 +1,4 @@
+03/11/22 14:41  GetDataSet Exception Message: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)
+. InnerException: An existing connection was forcibly closed by the remote host
+. extraInfo: sql: SELECT workers.[id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId], [active], [imgPath], [shluha], [wDepartmentId], [departmentName], jobTitle, workerLevel, carType, carNumber FROM workers inner join departments on workers.wDepartmentId= departments.id WHERE [active]=1 order by firstname, lastname
+

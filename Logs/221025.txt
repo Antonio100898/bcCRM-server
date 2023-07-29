@@ -1,0 +1,7 @@
+25/10/22 21:56  ExecuteNonQuery Exception Message: Invalid column name 'expenseDate'.
+. extraInfo: sql: INSERT INTO [dbo].[workerExpenses] ([workerId],[expenseType],[expenseValue],[freePass],[expenseDate],[remark],[expenseTypeUnitValue]) VALUES (@workerId,@expenseType,@expenseValue,@freePass,@expenseDate, @remark, @expenseTypeUnitValue);
+
+25/10/22 22:33  ExecuteNonQuery Exception Message: The variable name '@workerId' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@expenseType".
+. extraInfo: sql: INSERT INTO [dbo].[workerExpenses] ([workerId],[expenseType],[expenseValue],[freePass],[expenseDate],[remark],[expenseTypeUnitValue]) VALUES (@workerId,@expenseType,@expenseValue,@freePass,@expenseDate, @remark, @expenseTypeUnitValue);
+

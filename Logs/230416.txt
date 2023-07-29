@@ -1,0 +1,13 @@
+16/04/23 11:11  GetDataSet Exception Message: The multi-part identifier "workersSickday.workerid" could not be bound.
+The multi-part identifier "workersSickday.id" could not be bound.
+. extraInfo: sql: SELECT workersSickday.[id], [workerId], firstName + ' ' + lastName as workerName, [startDate],[finishDate],workersFreeDay.[statusId] FROM [dbo].[workersFreeDay] inner join workers on[workersFreeDay].workerid = workers.id WHERE (Year(startdate)=@year) AND (Month(startdate)= @month)  AND [workersSickday].workerid=@workerid  Order by startDate, workerName
+
+16/04/23 11:11  GetDataSet Exception Message: The multi-part identifier "workersSickday.workerid" could not be bound.
+The multi-part identifier "workersSickday.id" could not be bound.
+. extraInfo: sql: SELECT workersSickday.[id], [workerId], firstName + ' ' + lastName as workerName, [startDate],[finishDate],workersFreeDay.[statusId] FROM [dbo].[workersFreeDay] inner join workers on[workersFreeDay].workerid = workers.id WHERE (Year(startdate)=@year) AND (Month(startdate)= @month)  AND [workersSickday].workerid=@workerid  Order by startDate, workerName
+
+16/04/23 11:13  GetDataSet Exception Message: The multi-part identifier "workersSickday.workerid" could not be bound.
+The multi-part identifier "workersSickday.id" could not be bound.
+The multi-part identifier "workersSickday.workerId" could not be bound.
+. extraInfo: sql: SELECT workersSickday.[id], workersSickday.[workerId], firstName + ' ' + lastName as workerName, [startDate],[finishDate],workersFreeDay.[statusId] FROM [dbo].[workersFreeDay] inner join workers on[workersFreeDay].workerid = workers.id WHERE (Year(startdate)=@year) AND (Month(startdate)= @month)  AND [workersSickday].workerid=@workerid  Order by startDate, workerName
+
