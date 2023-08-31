@@ -18,6 +18,7 @@ public class WorkerBase
     public string imgPath { get; set; }
     public string imgContent { get; set; }
     public string imgContentName { get; set; }    
+    public string token { get; set; }
 
 }
 

@@ -72,6 +72,8 @@ public class crmLogin
     public bool success { get; set; }
     public List<WorkerBase> workers { get; set; }
     public List<ProblemType> problemTypes { get; internal set; }
+    public List<Problem> problems { get; set; }
+    public ProblemsCountSummery summery { get; set; }
 }
 
 public class SearchProblem
@@ -340,6 +342,7 @@ public class ShiftDetail : ShiftPlan
     public string startHour { get; set; }
     public string finishHour { get; set; }
     public int shiftGroupId { get; set; }
+    public bool isShiftManager { get; set; }
 
     public ShiftDetail()
     {
@@ -354,6 +357,7 @@ public class ShiftDetail : ShiftPlan
         phone = "";
         startHour = "0";
         finishHour = "0";
+        isShiftManager = false;
     }
 }
 

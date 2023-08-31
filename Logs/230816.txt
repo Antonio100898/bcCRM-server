@@ -1,0 +1,8 @@
+16/08/23 14:02  GetDataSet Exception Message: למחשב לקוח לא היתה אפשרות ליצור חיבור עקב שגיאה בזמן תהליך אתחול החיבור לפני הכניסה. סיבות אפשרויות כוללות: מחשב הלקוח ניסה להתחבר לגירסה לא נתמכת של SQL Server; השרת היה עמוס מדי כדי לקבל חיבורים חדשים; או שהיתה מגבלת משאבים (לא היה די זיכרון או שמספר החיבורים המרבי המותר לא הספיק) בשרת. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)
+. InnerException: An existing connection was forcibly closed by the remote host
+. extraInfo: sql: SELECT [id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId],[shluha], [active], [imgPath], [wDepartmentId], [jobTitle], [teudatZehut], [guidKey] FROM workers WHERE [userName]=@userName AND [password]=@password;
+
+16/08/23 15:43  ExecuteScalar Exception Message: אירעה שגיאה ברמת התעבורה בעת קבלת תוצאות מהשרת. (provider: TCP Provider, error: 0 - The specified network name is no longer available.)
+. InnerException: The specified network name is no longer available
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@workerKey;
+

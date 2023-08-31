@@ -866,13 +866,13 @@ public static class WebDal
         }
 
         string workerProblem = "";
-        
+
         //if (workerInvolved)
         //{
-            workerProblem = "Left Join (SELECT problemWorkers.problemId, Sum(IIF(problemWorkers.workerId=@workerId,1,0)) as pCount " +
-                            "FROM [dbo].[problemsClose] inner join problemWorkers on problemWorkers.problemId = [problemsClose].id " +
-                            "WHERE statusId<>2 AND problemWorkers.workerId = @workerId " +
-                            "Group by  problemWorkers.problemId) pt on problemsClose.id = pt.problemId;";
+        workerProblem = "Left Join (SELECT problemWorkers.problemId, Sum(IIF(problemWorkers.workerId=@workerId,1,0)) as pCount " +
+                        "FROM [dbo].[problemsClose] inner join problemWorkers on problemWorkers.problemId = [problemsClose].id " +
+                        "WHERE statusId<>2 AND problemWorkers.workerId = @workerId " +
+                        "Group by  problemWorkers.problemId) pt on problemsClose.id = pt.problemId;";
         //}
 
         string sql = "SELECT " + top + " problemsClose.id, problemsClose.workerId, problemsClose.phoneId, problemsClose.phone, problemsClose.ip, problemsClose.placeNameId, problemsClose.placeName, problemsClose.customerName, problemsClose.problemDesc, problemsClose.problemSolution, problemsClose.statusId, problemsClose.emergencyId, problemsClose.departmentId, problemsClose.reportToYaron, problemsClose.startTime, problemsClose.finishTime, problemStatus.statusName, workers.firstName + N' ' + workers.lastName AS workerName, departments.departmentName, problemsClose.toWorker, workers_1.firstName + N' ' + workers_1.lastName AS toWorkerName, workers_1.jobTitle as toWorkerJobTitle, tFiles.[fileCount], tFiles.filesName, problemWorkers.workerId as toWorkersId, updaterWorkerId, workers_2.firstName + N' ' + workers_2.lastName AS updateWorkerName, workers_2.wDepartmentId as updateWorkerDepartment, places.vip, problemsClose.takingCare, problemsClose.isLocked, problemsClose.callCustomerBack, problemTypesInfo, pt.pCount as isInvolved " +
@@ -898,7 +898,7 @@ public static class WebDal
         List<SqlParameter> values = new List<SqlParameter>();
         //if (workerId > 0)
         //{
-            values.Add(new SqlParameter("@workerId", workerId));
+        values.Add(new SqlParameter("@workerId", workerId));
         //}
         DataSet ds = Dal.GetDataSet(sql, values);
 
@@ -1747,8 +1747,8 @@ public static class WebDal
             shift.remark = " ";
         }
 
-        string sql = "INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address],[shiftGroupId]) VALUES " +
-                                                    "(@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address,@shiftGroupId);";
+        string sql = "INSERT INTO [dbo].[shiftsDetails] ([shiftTypeId],[jobTypeId],[workerId],[startDate],[finishTime],[remark],[placeName],[contactName],[phone],[address],[shiftGroupId],[isShiftManager]) VALUES " +
+                                                    "(@shiftTypeId,@jobTypeId,@workerId,@startDate,@finishTime,@remark,@placeName,@contactName,@phone,@address,@shiftGroupId,@isShiftManager);";
 
         List<SqlParameter> values = new List<SqlParameter>();
         values.Add(new SqlParameter("@shiftTypeId", shift.shiftTypeId));
@@ -1765,6 +1765,7 @@ public static class WebDal
         values.Add(new SqlParameter("@contactName", shift.contactName));
         values.Add(new SqlParameter("@phone", shift.phone));
         values.Add(new SqlParameter("@shiftGroupId", shift.shiftGroupId));
+        values.Add(new SqlParameter("@isShiftManager", shift.isShiftManager));
 
         Dal.ExecuteNonQuery(sql, values);
     }
@@ -2552,7 +2553,7 @@ public static class WebDal
 
             DateTime finishDate = startTime.AddDays(addDays);
 
-            string sql = "SELECT shiftPlans.[id],[workerId], workers.firstName + ' ' + workers.lastName as workerName,[date],[shiftTypeId],[shiftName],[remark],[cancel] " +
+            string sql = "SELECT shiftPlans.[id],[workerId], workers.firstName + ' ' + workers.lastName as workerName,[date],[shiftTypeId],[shiftName],[remark],[cancel],[isShiftManager] " +
                          "FROM [dbo].[shiftPlans] Inner join Workers On shiftPlans.workerId = Workers.id Inner join shiftTypes On shiftPlans.shiftTypeId = shiftTypes.id " +
                          "WHERE ([date] >= @startTime AND[date] < @finishTime) " + whereWorker + " AND cancel = 0;";
 
@@ -2582,6 +2583,7 @@ public static class WebDal
                         m.startDate = DateTime.Parse(item["date"].ToString());
                         m.startDateEN = DateTime.Parse(item["date"].ToString()).ToString("yyyy/MM/dd");
                         m.remark = item["remark"].ToString();
+                        m.isShiftManager = bool.Parse(item["isShiftManager"].ToString());
 
                         result.Add(m);
 
@@ -3255,8 +3257,8 @@ public static class WebDal
 
     public static int AppendWorker(string firstName, string lastName, string phone, int workerTypeID, string userName, string password, int userTypeId, int shluha, bool active)
     {
-        string sql = "INSERT INTO [dbo].[workers] ([firstName],[lastName],[phone],[workerTypeID],[userName],[password],[userTypeId],[shluha],[active]) " +
-                  "VALUES (@firstName, @lastName, @phone, @workerTypeID, @userName, @password, @userTypeId, @shluha, @active) " +
+        string sql = "INSERT INTO [dbo].[workers] ([firstName],[lastName],[phone],[workerTypeID],[userName],[password],[userTypeId],[shluha],[active],[guidKey]) " +
+                  "VALUES (@firstName, @lastName, @phone, @workerTypeID, @userName, @password, @userTypeId, @shluha, @active, @guidKey) " +
                   "SELECT SCOPE_IDENTITY()";
 
         List<SqlParameter> values = new List<SqlParameter>();
@@ -3270,6 +3272,7 @@ public static class WebDal
         values.Add(new SqlParameter("@userTypeId", userTypeId));
         values.Add(new SqlParameter("@shluha", shluha));
         values.Add(new SqlParameter("@active", active));
+        values.Add(new SqlParameter("@guidKey", Guid.NewGuid().ToString()));
 
         object o = Dal.ExecuteScalar(sql, values);
 
@@ -4442,7 +4445,7 @@ public static class WebDal
     {
         Worker result = null;
 
-        string sql = "SELECT [id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId],[shluha], [active], [imgPath], [wDepartmentId], [jobTitle], [teudatZehut] " +
+        string sql = "SELECT [id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId],[shluha], [active], [imgPath], [wDepartmentId], [jobTitle], [teudatZehut], [guidKey] " +
                     "FROM workers " +
                      "WHERE [userName]=@userName AND [password]=@password;";
 
@@ -4473,7 +4476,7 @@ public static class WebDal
                     p.departmentId = int.Parse(item["wDepartmentId"].ToString());
                     p.jobTitle = item["jobTitle"].ToString();
                     p.teudatZehut = item["teudatZehut"].ToString();
-
+                    p.token = item["guidKey"].ToString();
 
 
                     result = p;
@@ -4494,7 +4497,7 @@ public static class WebDal
 
         workerKey = workerKey.Replace("\"", "");
 
-        string sql = "SELECT [id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId],[shluha], [active], [imgPath], [wDepartmentId], [jobTitle], [teudatZehut] " +
+        string sql = "SELECT [id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId],[shluha], [active], [imgPath], [wDepartmentId], [jobTitle], [teudatZehut], [guidKey] " +
                     "FROM workers " +
                      "WHERE [guidKey]=@workerKey;";
 
@@ -4524,7 +4527,7 @@ public static class WebDal
                     p.departmentId = int.Parse(item["wDepartmentId"].ToString());
                     p.jobTitle = item["jobTitle"].ToString();
                     p.teudatZehut = item["teudatZehut"].ToString();
-
+                    p.token = item["guidKey"].ToString();
 
                     result = p;
                 }
@@ -5187,7 +5190,7 @@ public static class WebDal
         }
 
 
-        string sql = "SELECT workersFreeDay.[id], workersFreeDay.[workerId], firstName + ' ' + lastName as workerName, [startDate],[finishDate],workersFreeDay.[statusId] " +
+        string sql = "SELECT workersFreeDay.[id], workersFreeDay.[remark], workersFreeDay.[workerId], firstName + ' ' + lastName as workerName, [startDate],[finishDate],workersFreeDay.[statusId] " +
                     "FROM [dbo].[workersFreeDay] inner join workers on[workersFreeDay].workerid = workers.id " +
                     "WHERE (Year(startdate)=@year) AND (Month(startdate)= @month) " + filterWorker + " " +
                     "Order by startDate, workerName";
@@ -5214,6 +5217,7 @@ public static class WebDal
                     p.id = int.Parse(item["id"].ToString());
                     p.workerId = int.Parse(item["workerId"].ToString());
                     p.workerName = (item["workerName"].ToString());
+                    p.remark = (item["remark"].ToString());
                     p.startDate = DateTime.Parse(item["startDate"].ToString());
                     p.startDateEN = DateTime.Parse(item["startDate"].ToString()).ToString("MM/dd/yyyy");
                     p.finishDate = DateTime.Parse(item["finishDate"].ToString());

@@ -22,6 +22,12 @@ public class CrmWS : WebService
     }
 
     [WebMethod]
+    public string Proof()
+    {
+        return "Functional";
+    }
+
+    [WebMethod]
     //[ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet =false)]
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
     public crmLogin Login(string userName, string password)
@@ -34,8 +40,14 @@ public class CrmWS : WebService
             return result;
         }
 
+        string key = w.token;
+        if (string.IsNullOrEmpty(key))
+        {
+            key = WebDal.CreateWorkerNewGuid(w.Id);
+        }
+
         result.success = true;
-        result.key = WebDal.CreateWorkerNewGuid(w.Id);
+        result.key = key;
 
         result.workerId = w.Id;
         result.workerName = w.workerName;
@@ -51,6 +63,8 @@ public class CrmWS : WebService
         result.imgPath = w.imgPath;
         result.workers = WebDal.GetWorkersBase();
         result.problemTypes = WebDal.GetProblemTypes();
+        result.problems = WebDal.GetProblemsList("-1", w.Id);
+        result.summery = WebDal.GetProblemsCountsummery(w.Id);
 
         return result;
     }
@@ -74,9 +88,14 @@ public class CrmWS : WebService
             return result;
         }
 
+        if (string.IsNullOrEmpty(w.token))
+        {
+            w.token = WebDal.CreateWorkerNewGuid(w.Id);
+        }
+
         result.success = true;
         result.workerId = w.Id;
-        result.key = workerKey;
+        result.key = w.token;
         result.workerName = w.workerName;
         result.shluha = w.shluha;
         result.userType = w.userTypeId;
@@ -91,6 +110,8 @@ public class CrmWS : WebService
         result.imgPath = w.imgPath;
         result.workers = WebDal.GetWorkersBase();
         result.problemTypes = WebDal.GetProblemTypes();
+        result.problems = WebDal.GetProblemsList("-1", w.Id);
+        result.summery = WebDal.GetProblemsCountsummery(w.Id);
 
         return result;
     }
