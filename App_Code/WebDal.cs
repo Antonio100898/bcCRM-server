@@ -125,7 +125,7 @@ public static class WebDal
                     {
                         ProblemType p = new ProblemType();
 
-                        p.id = int.Parse(item["id"].ToString());
+                        p.id =int.Parse(item["id"].ToString());
                         p.problemTypeName = item["problemTypeName"].ToString();
                         p.color = item["color"].ToString();
                         result.Add(p);
@@ -885,13 +885,12 @@ public static class WebDal
                           "places ON places.id = problemsClose.placeNameId " +
                           "LEFT JOIN (SELECT[problemId], Sum(1) as fileCount, STRING_AGG(ISNULL([filePath], ' '), ', ') As filesName FROM[dbo].[problemFiles] group by[problemId]) as tFiles on problemsClose.id = tFiles.[problemId] LEFT JOIN " +
                           "problemWorkers ON problemsClose.id = problemWorkers.problemId " +
-                          "LEFT JOIN(SELECT[problemId], STRING_AGG (CONVERT(NVARCHAR(max),problemTypes.problemTypeName + '-' + color), ',') As problemTypesInfo FROM[dbo].problemTypeDetails  LEFT JOIN problemTypes ON problemTypeDetails.problemTypeId = problemTypes.id group by[problemId]) as tTypes on problemsClose.id = tTypes.[problemId] " +
+                          "LEFT JOIN(SELECT[problemId], STRING_AGG (CONVERT(NVARCHAR(max),problemTypes.problemTypeName + '-' + color + '-' + CAST(problemTypes.id AS VARCHAR(10))), ',') As problemTypesInfo FROM[dbo].problemTypeDetails  LEFT JOIN problemTypes ON problemTypeDetails.problemTypeId = problemTypes.id group by[problemId]) as tTypes on problemsClose.id = tTypes.[problemId] " +
                           trakingWorker +
                           "Left Join (SELECT problemWorkers.problemId, Sum(IIF(problemWorkers.workerId=@workerId,1,0)) as pCount " +
                             "FROM [dbo].[problemsClose] inner join problemWorkers on problemWorkers.problemId = [problemsClose].id " +
                             "WHERE statusId<>2 AND problemWorkers.workerId = @workerId " +
                             "Group by  problemWorkers.problemId) pt on problemsClose.id = pt.problemId " +
-
                         where +
                      "ORDER BY problemsClose.startTime DESC";
 
@@ -905,6 +904,7 @@ public static class WebDal
         return ds;
     }
 
+    
     public static List<Problem> GetProblemsList(string departmentId, int workerId)
     {
         int i;
@@ -1051,6 +1051,7 @@ public static class WebDal
                 {
                     string[] t = pType.Split(new char[] { '-' });
                     ProblemType pTy = new ProblemType();
+                    pTy.id = int.Parse(t[2]);
                     pTy.problemTypeName = t[0];
                     pTy.color = t[1];
                     p.problemTypesList.Add(pTy);
@@ -4096,9 +4097,6 @@ public static class WebDal
                 ps.departmentValue = "-7";
                 result.departments.Add(ps);
             }
-
-
-
         }
         return result;
     }

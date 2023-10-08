@@ -1,0 +1,52 @@
+27/09/23 12:52  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 12:52  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 12:53  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 12:56  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 13:05  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 13:05  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 13:07  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 13:07  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 13:12  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 14:00  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 14:01  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 14:19  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+
+27/09/23 14:21  ExecuteNonQuery Exception Message: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_problemsClose_departments". The conflict occurred in database "BeecommDB", table "dbo.departments", column 'id'.
+The statement has been terminated.
+. extraInfo: sql: UPDATE [dbo].[problemsClose] Set [ip]= @ip,[placeName]= @placeName,[customerName]= @customerName,[problemDesc]= @problemDesc,[problemSolution]= @problemSolution,[toWorker]= @toWorker,[statusId]= @statusId,[departmentId]= @departmentId, [emergencyId]= @emergencyId,[finishTime]= @finishTime, [updaterWorkerId]= @updaterWorkerId, [takingCare] = @takingCare, [isLocked] = @isLocked, [callCustomerBack]= @callCustomerBack WHERE (id = @id);
+

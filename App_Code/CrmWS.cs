@@ -1148,33 +1148,33 @@ public class CrmWS : WebService
         return result;
     }
 
-    //[WebMethod]
-    //[WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
-    //public crmResponse GetChatLines(string workerKey, int problemId)
-    //{
-    //    crmResponse result = new crmResponse();
+    [WebMethod]
+    [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    public crmResponse GetChatLines(string workerKey, int problemId)
+    {
+        crmResponse result = new crmResponse();
 
-    //    if (string.IsNullOrEmpty(workerKey))
-    //    {
-    //        result.msg = "חסר פרטי משתמש";
-    //        return result;
-    //    }
+        if (string.IsNullOrEmpty(workerKey))
+            {
+                result.msg = "חסר פרטי משתמש";
+                return result;
+            }
 
 
-    //    int workerId = WebDal.GetWorker(workerKey);
-    //    if (workerId == 0)
-    //    {
-    //        result.msg = "מפתח משתמש לא מזוהה";
-    //        return result;
-    //    }
+        int workerId = WebDal.GetWorker(workerKey);
+        if (workerId == 0)
+            {
+                result.msg = "מפתח משתמש לא מזוהה";
+                return result;
+            }
 
-    //    result.msgLines = WebDal.GetProblemMsgs(problemId);
-    //    result.success = true;
+        result.msgLines = WebDal.GetProblemMsgs(problemId);
+        result.success = true;
 
-    //    WebDal.UpdateOrAppendProblemChatSeenByWorker(workerId, problemId);
+        WebDal.UpdateOrAppendProblemChatSeenByWorker(workerId, problemId);
 
-    //    return result;
-    //}
+        return result;
+    }
 
     [WebMethod]
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
