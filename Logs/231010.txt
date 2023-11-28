@@ -1,0 +1,9 @@
+10/10/23 14:34  GetDataSet Exception Message: Invalid column name 'isShiftManager'.
+. extraInfo: sql: SELECT shiftPlans.[id],[workerId], workers.firstName + ' ' + workers.lastName as workerName,[date],[shiftTypeId],[shiftName],[remark],[cancel],[isShiftManager] FROM [dbo].[shiftPlans] Inner join Workers On shiftPlans.workerId = Workers.id Inner join shiftTypes On shiftPlans.shiftTypeId = shiftTypes.id WHERE ([date] >= @startTime AND[date] < @finishTime)  AND cancel = 0;
+
+10/10/23 14:34  GetDataSet Exception Message: Invalid column name 'isShiftManager'.
+. extraInfo: sql: SELECT shiftPlans.[id],[workerId], workers.firstName + ' ' + workers.lastName as workerName,[date],[shiftTypeId],[shiftName],[remark],[cancel],[isShiftManager] FROM [dbo].[shiftPlans] Inner join Workers On shiftPlans.workerId = Workers.id Inner join shiftTypes On shiftPlans.shiftTypeId = shiftTypes.id WHERE ([date] >= @startTime AND[date] < @finishTime)  AND cancel = 0;
+
+10/10/23 14:34  GetDataSet Exception Message: Invalid column name 'isShiftManager'.
+. extraInfo: sql: SELECT shiftPlans.[id],[workerId], workers.firstName + ' ' + workers.lastName as workerName,[date],[shiftTypeId],[shiftName],[remark],[cancel],[isShiftManager] FROM [dbo].[shiftPlans] Inner join Workers On shiftPlans.workerId = Workers.id Inner join shiftTypes On shiftPlans.shiftTypeId = shiftTypes.id WHERE ([date] >= @startTime AND[date] < @finishTime)  AND cancel = 0;
+
