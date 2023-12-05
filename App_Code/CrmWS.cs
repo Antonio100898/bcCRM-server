@@ -1108,6 +1108,7 @@ public class CrmWS : WebService
                 }
 
             }
+           
             result.success = true;
         }
         catch (Exception e)
@@ -1609,40 +1610,40 @@ public class CrmWS : WebService
 
         switch (month)
         {
-            case "ינואר":
+            case "1":
                 result.Add(1);
                 break;
-            case "פברואר":
+            case "2":
                 result.Add(2);
                 break;
-            case "מרץ":
+            case "3":
                 result.Add(3);
                 break;
-            case "אפריל":
+            case "4":
                 result.Add(4);
                 break;
-            case "מאי":
+            case "5":
                 result.Add(5);
                 break;
-            case "יוני":
+            case "6":
                 result.Add(6);
                 break;
-            case "יולי":
+            case "7":
                 result.Add(7);
                 break;
-            case "אוגוסט":
+            case "8":
                 result.Add(8);
                 break;
-            case "ספטמבר":
+            case "9":
                 result.Add(9);
                 break;
-            case "אוקטובר":
+            case "10":
                 result.Add(10);
                 break;
-            case "נובמבר":
+            case "11":
                 result.Add(11);
                 break;
-            case "דצמבר":
+            case "12":
                 result.Add(12);
                 break;
             default:

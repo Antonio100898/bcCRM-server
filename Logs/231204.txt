@@ -1,0 +1,4 @@
+04/12/23 14:16  ExecuteScalar Exception Message: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+. InnerException: The semaphore timeout period has expired
+. extraInfo: sql: SELECT [id] FROM workers WHERE [guidKey]=@guidKey;
+

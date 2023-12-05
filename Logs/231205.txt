@@ -1,0 +1,24 @@
+05/12/23 12:02  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: d2eda136-6b79-427a-8445-27561bbb4ff8 phone: 0502300306
+
+05/12/23 12:02  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: d2eda136-6b79-427a-8445-27561bbb4ff8 phone: 0502300306
+
+05/12/23 12:06  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: d2eda136-6b79-427a-8445-27561bbb4ff8 phone: 0502300306
+
+05/12/23 12:07  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: d2eda136-6b79-427a-8445-27561bbb4ff8 phone: 0502300306
+
+05/12/23 15:27  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: 805f3869-1154-4ce8-9fe5-a7ef962d235b phone: 0507716176
+
+05/12/23 17:05  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: 805f3869-1154-4ce8-9fe5-a7ef962d235b phone: 0502300306
+
