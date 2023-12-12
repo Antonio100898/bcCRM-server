@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -349,6 +350,57 @@ public class CrmWS : WebService
         result.success = true;
         return result;
     }
+
+    [WebMethod]
+    [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    public crmResponse UpdateMsgLine(string workerKey, int msgId, string updatedMsg)
+    {
+        crmResponse result = new crmResponse();
+
+        int workerID = WebDal.GetWorkerId(workerKey);
+        if (workerID == 0)
+        {
+            result.msg = "עובד לא מזוהה, אין גישה";
+            return result;
+        }
+        try 
+        { 
+            WebDal.UpdateMsgLine(msgId, updatedMsg);
+            result.success = true;
+        } 
+        catch (Exception e)
+        {
+            result.msg = e.Message;
+        }
+       
+        return result;
+    }
+
+    [WebMethod]
+    [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    public crmResponse DeleteMsgLine(string workerKey, int msgId)
+    {
+        crmResponse result = new crmResponse();
+
+        int workerID = WebDal.GetWorkerId(workerKey);
+        if (workerID == 0)
+        {
+            result.msg = "עובד לא מזוהה, אין גישה";
+            return result;
+        }
+        try
+        {
+            WebDal.DeleteMsgLine(msgId);
+            result.success = true;
+        }
+        catch (Exception e)
+        {
+            result.msg = e.Message;
+        }
+
+        return result;
+    }
+
 
     [WebMethod]
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]

@@ -2876,6 +2876,27 @@ public static class WebDal
         Dal.ExecuteNonQuery(sql, values);
     }
 
+    internal static void UpdateMsgLine(int id, string msg)
+    {
+        string sql = "UPDATE [dbo].[problemMsgs] SET [msg] = @msg WHERE id=@id";
+
+        List<SqlParameter> values = new List<SqlParameter>();
+        values.Add(new SqlParameter("@id", id));
+        values.Add(new SqlParameter("@msg", msg));
+
+
+        Dal.ExecuteNonQuery(sql, values);
+    }
+
+    internal static void DeleteMsgLine(int id)
+    {
+        string sql = "DELETE FROM [dbo].[problemMsgs] WHERE id=@id";
+
+        List<SqlParameter> values = new List<SqlParameter>();
+        values.Add(new SqlParameter("@id", id));
+
+        Dal.ExecuteNonQuery(sql, values);
+    }
 
 
     internal static List<msgLine> GetProblemMsgs(int problemId)

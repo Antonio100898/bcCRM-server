@@ -1,0 +1,24 @@
+12.12.23 12:22  ExecuteNonQuery Exception Message: Must declare the scalar variable "@updatedMsg".
+. extraInfo: sql: UPDATE [dbo].[problemMsgs] SET [msg] = @updatedMsg WHERE id = @msgId
+
+12.12.23 12:22  ExecuteNonQuery Exception Message: Must declare the scalar variable "@updatedMsg".
+. extraInfo: sql: UPDATE [dbo].[problemMsgs] SET [msg] = @updatedMsg WHERE id = @msgId
+
+12.12.23 12:37  ExecuteNonQuery Exception Message: Must declare the scalar variable "@updatedMsg".
+. extraInfo: sql: UPDATE [dbo].[problemMsgs] SET [msg] = @updatedMsg WHERE id = @msgId
+
+12.12.23 12:47  ExecuteNonQuery Exception Message: Must declare the scalar variable "@updatedMsg".
+. extraInfo: sql: UPDATE [dbo].[problemMsgs] SET [msg] = @updatedMsg WHERE id=@msgId
+
+12.12.23 12:47  ExecuteNonQuery Exception Message: Must declare the scalar variable "@updatedMsg".
+. extraInfo: sql: UPDATE [dbo].[problemMsgs] SET [msg] = @updatedMsg WHERE id=@msgId
+
+12.12.23 12:48  ExecuteNonQuery Exception Message: Must declare the scalar variable "@updatedMsg".
+. extraInfo: sql: UPDATE [dbo].[problemMsgs] SET [msg] = @updatedMsg WHERE id=@msgId
+
+12.12.23 12:51  ExecuteNonQuery Exception Message: Must declare the scalar variable "@updatedMsg".
+. extraInfo: sql: UPDATE [dbo].[problemMsgs] SET [msg] = @updatedMsg WHERE id=@msgId
+
+12.12.23 12:56  ExecuteNonQuery Exception Message: Must declare the scalar variable "@updatedMsg".
+. extraInfo: sql: UPDATE [dbo].[problemMsgs] SET [msg] = @updatedMsg WHERE id=@msgId
+
