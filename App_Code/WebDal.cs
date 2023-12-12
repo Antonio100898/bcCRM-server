@@ -2882,7 +2882,7 @@ public static class WebDal
     {
         List<msgLine> result = new List<msgLine>();
 
-        string sql = "SELECT [workerId], firstName +  ' ' + lastName as workerName, imgPath,[msg],[lineType],[problemMsgs].[commitTime] " +
+        string sql = "SELECT [workerId], firstName +  ' ' + lastName as workerName, imgPath,[msg],[lineType],[problemMsgs].[commitTime], [problemMsgs].[id] as msgId " +
                     "FROM [dbo].[problemMsgs] inner join workers on[problemMsgs].workerId = workers.id " +
                     "WHERE [problemId] = @problemId AND problemMsgs.[active]=1 " +
                     "ORDER BY commitTime";
@@ -2906,6 +2906,7 @@ public static class WebDal
                     m.workerImgPath = item["imgPath"].ToString();
                     m.commitTime = item["commitTime"].ToString();
                     m.commitTimeEN = DateTime.Parse(item["commitTime"].ToString()).ToString("MM/dd/yyyy HH:mm:ss");
+                    m.id = int.Parse(item["msgId"].ToString());
                     result.Add(m);
                 }
             }
@@ -4438,7 +4439,6 @@ public static class WebDal
         return result;
     }
 
-
     public static Worker GetWorker(string userName, string password)
     {
         Worker result = null;
@@ -4515,7 +4515,7 @@ public static class WebDal
                     p.lastName = item["lastName"].ToString();
                     p.phone = item["phone"].ToString();
                     //p.birthDay = DateTime.Parse(item["birthDay"].ToString());
-                    //p.workerTypeID = int.Parse(item["workerTypeID"].ToString());
+                    p.workerTypeID = int.Parse(item["workerTypeID"].ToString());
                     p.userName = item["userName"].ToString();
                     p.password = item["password"].ToString();
                     p.userTypeId = int.Parse(item["userTypeId"].ToString());

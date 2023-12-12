@@ -92,6 +92,7 @@ public class SearchProblem
 
 public class msgLine
 {
+    public int id { get; set; }
     public int workerId { get; set; }
     public string workerName { get; set; }
     public string msg { get; set; }

@@ -112,6 +112,7 @@ public class CrmWS : WebService
         result.problemTypes = WebDal.GetProblemTypes();
         result.problems = WebDal.GetProblemsList("-1", w.Id);
         result.summery = WebDal.GetProblemsCountsummery(w.Id);
+        result.workerType = w.workerTypeID;
 
         return result;
     }

@@ -1,0 +1,30 @@
+11/12/23 16:07  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+. InnerException: The network path was not found
+. extraInfo: sql: SELECT [id], [groupName], [databaseName] FROM [dbo].[Groups] ORDER BY [groupName];
+
+11/12/23 16:07  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+. InnerException: The network path was not found
+. extraInfo: sql: SELECT [Id],[name] FROM [dbo].[cities] order by [name];
+
+11/12/23 16:08  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+. InnerException: The network path was not found
+. extraInfo: sql: SELECT [id], [groupName], [databaseName] FROM [dbo].[Groups] ORDER BY [groupName];
+
+11/12/23 16:08  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+. InnerException: The network path was not found
+. extraInfo: sql: SELECT [Id],[name] FROM [dbo].[cities] order by [name];
+
+11/12/23 17:25  GetDataSet Exception Message: Invalid column name 'guidKey'.
+Invalid column name 'workerTypeID'.
+. extraInfo: sql: SELECT [workerTypeID] WHERE [guidKey]=@workerKey;
+
+11/12/23 17:25  GetDataSet Exception Message: Invalid column name 'guidKey'.
+Invalid column name 'workerTypeID'.
+. extraInfo: sql: SELECT [workerTypeID] WHERE [guidKey]=@workerKey;
+
+11/12/23 17:43  GetDataSet Exception Message: Ambiguous column name 'id'.
+. extraInfo: sql: SELECT [workerId], firstName +  ' ' + lastName as workerName, imgPath,[msg],[lineType],[problemMsgs].[commitTime], [id] FROM [dbo].[problemMsgs] inner join workers on[problemMsgs].workerId = workers.id WHERE [problemId] = @problemId AND problemMsgs.[active]=1 ORDER BY commitTime
+
+11/12/23 17:43  GetDataSet Exception Message: Ambiguous column name 'id'.
+. extraInfo: sql: SELECT [workerId], firstName +  ' ' + lastName as workerName, imgPath,[msg],[lineType],[problemMsgs].[commitTime], [id] FROM [dbo].[problemMsgs] inner join workers on[problemMsgs].workerId = workers.id WHERE [problemId] = @problemId AND problemMsgs.[active]=1 ORDER BY commitTime
+
