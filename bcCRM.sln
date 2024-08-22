@@ -1,27 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33214.272
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "bcCRM", ".", "{FC8FD172-C655-4BE7-9612-FC22FFA37638}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_56967"
-		Debug.AspNetCompiler.PhysicalPath = "..\bccrm-server-2024\"
+		Debug.AspNetCompiler.PhysicalPath = "..\bccrm-server\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56967\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_56967"
-		Release.AspNetCompiler.PhysicalPath = "..\bccrm-server-2024\"
+		Release.AspNetCompiler.PhysicalPath = "..\bccrm-server\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56967\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "56967"
-		SlnRelativePath = "..\bccrm-server-2024\"
+		SlnRelativePath = "..\bccrm-server\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bcCrmHelper", "..\bcCrmHelper\bcCrmHelper.csproj", "{E698AB4C-F4AB-4A70-BF18-FDCBD70867AE}"

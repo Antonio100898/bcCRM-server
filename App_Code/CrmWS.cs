@@ -873,16 +873,6 @@ public class CrmWS : WebService
             search.daysBack = 3;
         }
 
-        search.daysBack *= 30;
-        //search.department = true;
-        //search.desc = true;
-        //search.phone = true;
-        //search.workerName = true;
-        //search.toWorkerName = true;
-        //search.place = true;
-
-
-
         result.problems = WebDal.GetProblemsSearch(search);
         result.success = true;
 
@@ -1832,6 +1822,7 @@ public class CrmWS : WebService
 
 
         int workerId = WebDal.GetWorker(workerKey);
+
         if (workerId == 0)
         {
             result.msg = "מפתח משתמש לא מזוהה";
@@ -1940,6 +1931,7 @@ public class CrmWS : WebService
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
     public crmResponse GetShiftPlansForWorker(string workerKey, DateTime startTime)
     {
+       
         crmResponse result = new crmResponse();
 
         if (string.IsNullOrEmpty(workerKey))
@@ -2046,7 +2038,7 @@ public class CrmWS : WebService
 
     [WebMethod]
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
-    public crmResponse GetShiftPlansDetails(string workerKey, DateTime startTime, int addDays)
+    public crmResponse GetShiftPlansDetails(string workerKey, DateTime startTime, int addDays, int shiftTypeId)
     {
         crmResponse result = new crmResponse();
 
@@ -2066,7 +2058,7 @@ public class CrmWS : WebService
 
         try
         {
-            result.shiftPlanDetails = WebDal.GetShiftPlansDetails(startTime, 0, addDays);
+            result.shiftPlanDetails = WebDal.GetShiftPlansDetails(startTime, 0, addDays, shiftTypeId);
 
             result.success = true;
         }
@@ -2141,35 +2133,43 @@ public class CrmWS : WebService
 
     [WebMethod]
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
-    public crmResponse UpdateShiftPlan(string workerKey, ShiftPlan shiftPlan)
+    public crmResponse UpdateShiftPlan(string workerKey, List<ShiftPlan> shiftPlans)
     {
-        //
         crmResponse result = new crmResponse();
-
-        if (string.IsNullOrEmpty(workerKey))
+        try
         {
-            result.msg = "חסר פרטי משתמש";
+            if (string.IsNullOrEmpty(workerKey))
+            {
+                result.msg = "חסר פרטי משתמש";
+                return result;
+            }
+
+
+            int workerId = WebDal.GetWorker(workerKey);
+            if (workerId == 0)
+            {
+                result.msg = "מפתח משתמש לא מזוהה";
+                return result;
+            }
+
+            foreach (ShiftPlan shiftPlan in shiftPlans)
+            {
+                shiftPlan.workerId = workerId;
+                if (shiftPlan.id == 0)
+                {
+                    WebDal.AppendShiftPlan(shiftPlan);
+                }
+                else
+                {
+                    WebDal.UpdateShiftPlan(shiftPlan);
+                }
+            }
+        }
+        catch (Exception ex) {
+            result.msg = ex.Message;
             return result;
         }
-
-
-        int workerId = WebDal.GetWorker(workerKey);
-        if (workerId == 0)
-        {
-            result.msg = "מפתח משתמש לא מזוהה";
-            return result;
-        }
-
-        shiftPlan.workerId = workerId;
-        if (shiftPlan.id == 0)
-        {
-            WebDal.AppendShiftPlan(shiftPlan);
-        }
-        else
-        {
-            WebDal.UpdateShiftPlan(shiftPlan);
-        }
-
+       
         result.success = true;
 
         return result;

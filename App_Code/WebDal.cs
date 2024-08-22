@@ -1812,11 +1812,11 @@ public static class WebDal
                     "Group by workers.[id],[firstName],[lastName] " +
                     "HAVING Sum(1)= 1 " +
                     "order by firstName, lastName";
-
+        
         sql = "SELECT workers.[id],[firstName],[lastName] " +
              "FROM [dbo].[workers]  Left join(SELECT workerId FROM shiftPlans where ((date>= @startDate) AND(date <= @finishDate)) Group by workerId) as a on[workers].id = a.workerId " +
              "WHERE [wDepartmentId] = 16 AND a.workerId is null " +
-            "order by firstName, lastName";
+              "order by firstName, lastName";
 
         List<SqlParameter> values = new List<SqlParameter>();
         values.Add(new SqlParameter("@startDate", start));
@@ -2541,7 +2541,7 @@ public static class WebDal
     }
 
 
-    internal static List<ShiftDetail> GetShiftPlansDetails(DateTime startTime, int workerId, int addDays = 1)
+    internal static List<ShiftDetail> GetShiftPlansDetails(DateTime startTime, int workerId, int addDays = 1, int shiftTypeId = 0)
     {
         List<ShiftDetail> result = new List<ShiftDetail>();
         try
@@ -2552,15 +2552,24 @@ public static class WebDal
                 whereWorker = " AND workerId= @workerId ";
             }
 
-            DateTime finishDate = startTime.AddDays(addDays);
+            string whereShiftTypeId = "";
+            if (shiftTypeId > 0) 
+            {
+                whereShiftTypeId = " AND shiftTypeId= @shiftTypeId ";
+            }
 
-            string sql = "SELECT shiftPlans.[id],[workerId], workers.firstName + ' ' + workers.lastName as workerName,[date],[shiftTypeId],[shiftName],[remark],[cancel],[isShiftManager] " +
+            DateTime start = new DateTime(startTime.Year, startTime.Month, startTime.Day);
+            DateTime finish = start.AddDays(addDays);
+
+            string sql = "SELECT shiftPlans.[id],[workerId], workers.firstName + ' ' + workers.lastName as workerName,[date],[shiftTypeId],[shiftName],[remark],[cancel] " +
                          "FROM [dbo].[shiftPlans] Inner join Workers On shiftPlans.workerId = Workers.id Inner join shiftTypes On shiftPlans.shiftTypeId = shiftTypes.id " +
-                         "WHERE ([date] >= @startTime AND[date] < @finishTime) " + whereWorker + " AND cancel = 0;";
+                         "WHERE ([date] >= @startTime AND[date] < @finishTime) " + whereWorker + whereShiftTypeId + " AND cancel = 0;";
 
             List<SqlParameter> values = new List<SqlParameter>();
-            values.Add(new SqlParameter("@startTime", startTime));
-            values.Add(new SqlParameter("@finishTime", finishDate));
+            values.Add(new SqlParameter("@startTime", start));
+            values.Add(new SqlParameter("@finishTime", finish));
+            values.Add(new SqlParameter("@shiftTypeId", shiftTypeId));
+
             if (workerId > 0)
             {
                 values.Add(new SqlParameter("@workerId", workerId));
@@ -2584,7 +2593,6 @@ public static class WebDal
                         m.startDate = DateTime.Parse(item["date"].ToString());
                         m.startDateEN = DateTime.Parse(item["date"].ToString()).ToString("yyyy/MM/dd");
                         m.remark = item["remark"].ToString();
-                        m.isShiftManager = bool.Parse(item["isShiftManager"].ToString());
 
                         result.Add(m);
 
@@ -4864,7 +4872,7 @@ public static class WebDal
         filter = filter.Substring(0, filter.Length - 4);
         filter += " AND (problemsClose.startTime > GETDATE() - " + search.daysBack + ")";
 
-        DataSet ds = GetProblemsForWS(filter, 50);
+        DataSet ds = GetProblemsForWS(filter);
 
         foreach (DataRow item in ds.Tables[0].Rows)
         {
@@ -4900,8 +4908,9 @@ public static class WebDal
             p.yaron = bool.Parse(item["reportToYaron"].ToString());
 
             p.startTime = DateTime.Parse(item["startTime"].ToString()).ToString("dd/MM/yy HH:mm");
-            p.finishTime = item["finishTime"].ToString();
+            p.finishTime = DateTime.Parse(item["finishTime"].ToString()).ToString("dd/MM/yy HH:mm");
             p.startTimeEN = DateTime.Parse(item["startTime"].ToString()).ToString("MM/dd/yy HH:mm");
+            p.finishTimeEN = DateTime.Parse(item["finishTime"].ToString()).ToString("MM/dd/yy HH:mm");
 
             p.takingCare = bool.Parse(item["takingCare"].ToString());
             p.isLocked = bool.Parse(item["isLocked"].ToString());
