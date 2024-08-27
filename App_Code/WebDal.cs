@@ -1,12 +1,14 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web.Http.Results;
 
 public static class WebDal
 {
@@ -1769,6 +1771,22 @@ public static class WebDal
         values.Add(new SqlParameter("@isShiftManager", shift.isShiftManager));
 
         Dal.ExecuteNonQuery(sql, values);
+        //get shiftId of the created shift
+        //then update outer comps for this shift
+        sql = "SELECT [id] FROM [dbo].[shiftsDetails] "
+            + "WHERE workerId = @workerId AND startDate = @startDate AND shiftGroupId = @shiftGroupId AND shiftTypeId = @shiftTypeId AND jobTypeId = @jobTypeId;";
+        DataSet ds = Dal.GetDataSet(sql);
+        if (ds.Tables.Count > 0)
+        {
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    int id = int.Parse(row["id"].ToString());
+                    UpdateShiftOuterCompanies(shift.id, shift.outerCompanies);
+                }
+            }
+        }
     }
 
     internal static void UpdateShift(ShiftDetail shift)
@@ -1798,7 +1816,7 @@ public static class WebDal
         values.Add(new SqlParameter("@phone", shift.phone));
         values.Add(new SqlParameter("@address", shift.address));
 
-
+        UpdateShiftOuterCompanies(shift.id, shift.outerCompanies);
         Dal.ExecuteNonQuery(sql, values);
     }
 
@@ -1964,7 +1982,7 @@ public static class WebDal
 
         Dal.ExecuteNonQuery(sql, values);
     }
-
+    
     internal static void CancelShiftPlan(int shiftplanId)
     {
         string sql = "UPDATE [dbo].[shiftPlans] SET [cancel] = 1 WHERE id = @id";
@@ -2284,9 +2302,6 @@ public static class WebDal
         return weeks;
     }
 
-
-
-
     internal static List<shiftWeek> GetShiftsDetails(DateTime startTime, int shiftGroupID)
     {
 
@@ -2294,14 +2309,10 @@ public static class WebDal
         List<shiftWeek> weeks = new List<shiftWeek>();
         try
         {
-            //AppendErrorLog("GetShiftsDetails", "startTime", startTime.ToString());
             status = "DateTime finishDate = startTime.AddDays(7);";
             DateTime finishDate = startTime.AddDays(7);
-            //AppendErrorLog("GetShiftsDetails", "finishDate ", finishDate.ToString());
-            //List<ShiftDetail> result = new List<ShiftDetail>();
-
+    
             status = "List<shiftWeek> weeks = new List<shiftWeek>();";
-
 
             string sql = "SELECT [shiftsDetails].[id], [shiftTypeId], shiftName, [jobTypeId], jobTypeName, shiftJobTypes.color, [workerId], firstName + ' ' + lastName as workerName,[startDate],[finishTime],shiftsDetails.[remark],shiftsDetails.[placeName],shiftsDetails.[contactName], shiftsDetails.[phone], [address], shiftsDetails.[commitTime] " +
                 "FROM [dbo].[shiftsDetails] " +
@@ -2347,7 +2358,7 @@ public static class WebDal
                         m.contactName = item["contactName"].ToString();
                         m.phone = item["phone"].ToString();
                         m.address = item["address"].ToString();
-
+                        m.outerCompanies = GetShiftOuterCompanies(m.id);
 
                         shiftWeek shiftWeek = weeks.Find(x => x.shiftType == m.shiftTypeId && x.jobType == m.jobTypeId);
                         if (shiftWeek == null)
@@ -5446,6 +5457,76 @@ public static class WebDal
         }
 
         return result;
+    }
+
+    public static List<OuterCompany> GetOuterCompanies()
+    {
+        List<OuterCompany> result = new List<OuterCompany>();
+       
+        string sql = "SELECT [id],[name],[color] " +
+            "FROM [dbo].[OuterCompanies];";
+
+        DataSet ds = Dal.GetDataSet(sql);
+
+        if (ds.Tables.Count > 0)
+        {
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    OuterCompany obj = new OuterCompany();
+                    obj.id = int.Parse(item["id"].ToString());
+                    obj.name = item["name"].ToString();
+                    obj.color = item["color"].ToString();
+                    result.Add(obj);
+                }
+            }
+        }
+     
+        return result;
+    }
+
+    public static List<OuterCompany> GetShiftOuterCompanies(int shiftId)
+    {
+        List<OuterCompany> result = new List<OuterCompany>();
+
+        string sql = "SELECT [outerCompanyId], [color], [name]" +
+            "FROM [dbo].[ShiftOuterCompanies]" +
+            "INNER JOIN [dbo].[OuterCompanies] ON  [ShiftOuterCompanies].[outerCompanyId] = [OuterCompanies].[id]" +
+            "WHERE [ShiftOuterCompanies].[shiftId] = " + shiftId + ";";
+
+        DataSet ds = Dal.GetDataSet(sql);
+
+        if (ds.Tables.Count > 0)
+        {
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    OuterCompany obj = new OuterCompany();
+                    obj.id = int.Parse(item["outerCompanyId"].ToString());
+                    obj.name = item["name"].ToString();
+                    obj.color = item["color"].ToString();
+                    result.Add(obj);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static void UpdateShiftOuterCompanies(int shiftId, List<OuterCompany> outerCompanies)
+    {
+       Dal.ExecuteNonQuery("DELETE FROM [dbo].[ShiftOuterCompanies] WHERE [ShiftOuterCompanies].[shiftId] = " + shiftId + ";");
+
+       string sql = "INSERT INTO [dbo].[ShiftOuterCompanies]([shiftId],[outerCompanyId]) VALUES(@shiftId,@outerCompanyId);";
+
+        foreach (OuterCompany comp in outerCompanies) {
+            List<SqlParameter> values = new List<SqlParameter>();
+            values.Add(new SqlParameter("@shiftId", shiftId));
+            values.Add(new SqlParameter("@outerCompanyId", comp.id));
+            Dal.ExecuteNonQuery(sql, values);
+        }
     }
 
     public static void UpdateNivServer(Problem problem)

@@ -2787,7 +2787,71 @@ public class CrmWS : WebService
         return result;
     }
 
+    [WebMethod]
+    [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    public crmResponse GetOuterCompanies(string workerKey)
+    {
+        crmResponse result = new crmResponse();
 
+        if (string.IsNullOrEmpty(workerKey))
+        {
+            result.msg = "חסר פרטי משתמש";
+            return result;
+        }
+
+
+        int workerId = WebDal.GetWorker(workerKey);
+        if (workerId == 0)
+        {
+            result.msg = "מפתח משתמש לא מזוהה";
+            return result;
+        }
+
+        try
+        {
+            result.outerCompanies = WebDal.GetOuterCompanies();
+
+            result.success = true;
+        }
+        catch (Exception e)
+        {
+            result.msg = e.Message;
+        }
+        return result;
+    }
+
+    [WebMethod]
+    [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    public crmResponse UpdateShiftOuterCompanies(string workerKey, int shiftId, List<OuterCompany> outerCompanies)
+    {
+        crmResponse result = new crmResponse();
+
+        if (string.IsNullOrEmpty(workerKey))
+        {
+            result.msg = "חסר פרטי משתמש";
+            return result;
+        }
+
+
+        int workerId = WebDal.GetWorker(workerKey);
+        if (workerId == 0)
+        {
+            result.msg = "מפתח משתמש לא מזוהה";
+            return result;
+        }
+
+        try
+        {
+            WebDal.UpdateShiftOuterCompanies(shiftId, outerCompanies);
+
+            result.success = true;
+        }
+        catch (Exception e)
+        {
+            result.msg = e.Message;
+        }
+        return result;
+    }
 }
 
 public static class DateTimeExtensions

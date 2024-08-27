@@ -54,6 +54,7 @@ public class crmResponse
     public List<string> filesName { get; set; }
     public double workExpensesSum { get; set; }
     public List<ExpenseAndShiftWeek> ExpenseAndShiftsWeeks { get; set; }
+    public List<OuterCompany> outerCompanies { get; set; }
 }
 
 public class crmLogin
@@ -335,7 +336,7 @@ public class ShiftDetail : ShiftPlan
     public string placeName { get; set; }
     public string address { get; set; }
     public string dayName { get; set; }
-    
+
 
     public string contactName { get; set; }
     public string phone { get; set; }
@@ -344,6 +345,7 @@ public class ShiftDetail : ShiftPlan
     public string finishHour { get; set; }
     public int shiftGroupId { get; set; }
     public bool isShiftManager { get; set; }
+    public List<OuterCompany> outerCompanies {get; set;}
 
     public ShiftDetail()
     {
@@ -475,3 +477,9 @@ public class dayInfo
     public bool isToday { get; set; }
 }
 
+public class OuterCompany
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public string color { get; set; }
+}
