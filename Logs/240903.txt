@@ -1,0 +1,9 @@
+03/09/24 17:07  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);SELECT SCOPE_IDENTITY()
+
+03/09/24 17:09  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);SELECT SCOPE_IDENTITY()
+
+03/09/24 17:11  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);SELECT SCOPE_IDENTITY()
+

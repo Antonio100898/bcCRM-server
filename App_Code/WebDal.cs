@@ -1978,7 +1978,7 @@ public static class WebDal
         values.Add(new SqlParameter("@startDate", shiftPlan.startDate));
         values.Add(new SqlParameter("@shiftTypeId", shiftPlan.shiftTypeId));
         values.Add(new SqlParameter("@remark", shiftPlan.remark));
-        values.Add(new SqlParameter("@cancel", shiftPlan.cancel));
+        values.Add(new SqlParameter("@cancel", shiftPlan.cancel? 1 : 0));
 
         Dal.ExecuteNonQuery(sql, values);
     }
@@ -2481,6 +2481,8 @@ public static class WebDal
                     ShiftDetail s = new ShiftDetail();
                     s.shiftTypeId = 1;
                     s.startDate = startTime.AddDays(i);
+                    s.startDateEN = DateTime.Parse(startTime.AddDays(i).ToString()).ToString("yyyy/MM/dd");
+                    s.id = Guid.NewGuid().GetHashCode();
                     sw.AddShift(s);
                 }
                 weeks.Add(sw);
@@ -2495,6 +2497,8 @@ public static class WebDal
                     ShiftDetail s = new ShiftDetail();
                     s.shiftTypeId = item.shiftType;
                     s.startDate = startTime.AddDays(0);
+                    s.startDateEN = DateTime.Parse(startTime.AddDays(0).ToString()).ToString("yyyy/MM/dd");
+                    s.id = Guid.NewGuid().GetHashCode();
                     item.AddShift(s);
                 }
 
@@ -2503,6 +2507,8 @@ public static class WebDal
                     ShiftDetail s = new ShiftDetail();
                     s.shiftTypeId = item.shiftType;
                     s.startDate = startTime.AddDays(1);
+                    s.startDateEN = DateTime.Parse(startTime.AddDays(1).ToString()).ToString("yyyy/MM/dd");
+                    s.id = Guid.NewGuid().GetHashCode();
                     item.AddShift(s);
                 }
 
@@ -2511,6 +2517,8 @@ public static class WebDal
                     ShiftDetail s = new ShiftDetail();
                     s.shiftTypeId = item.shiftType;
                     s.startDate = startTime.AddDays(2);
+                    s.startDateEN = DateTime.Parse(startTime.AddDays(2).ToString()).ToString("yyyy/MM/dd");
+                    s.id = Guid.NewGuid().GetHashCode();
                     item.AddShift(s);
                 }
 
@@ -2519,6 +2527,8 @@ public static class WebDal
                     ShiftDetail s = new ShiftDetail();
                     s.shiftTypeId = item.shiftType;
                     s.startDate = startTime.AddDays(3);
+                    s.startDateEN = DateTime.Parse(startTime.AddDays(3).ToString()).ToString("yyyy/MM/dd");
+                    s.id = Guid.NewGuid().GetHashCode();
                     item.AddShift(s);
                 }
 
@@ -2527,6 +2537,8 @@ public static class WebDal
                     ShiftDetail s = new ShiftDetail();
                     s.shiftTypeId = item.shiftType;
                     s.startDate = startTime.AddDays(4);
+                    s.startDateEN = DateTime.Parse(startTime.AddDays(4).ToString()).ToString("yyyy/MM/dd");
+                    s.id = Guid.NewGuid().GetHashCode();
                     item.AddShift(s);
                 }
 
@@ -2535,6 +2547,8 @@ public static class WebDal
                     ShiftDetail s = new ShiftDetail();
                     s.shiftTypeId = item.shiftType;
                     s.startDate = startTime.AddDays(5);
+                    s.startDateEN = DateTime.Parse(startTime.AddDays(5).ToString()).ToString("yyyy/MM/dd");
+                    s.id = Guid.NewGuid().GetHashCode();
                     item.AddShift(s);
                 }
 
@@ -2543,6 +2557,8 @@ public static class WebDal
                     ShiftDetail s = new ShiftDetail();
                     s.shiftTypeId = item.shiftType;
                     s.startDate = startTime.AddDays(6);
+                    s.startDateEN = DateTime.Parse(startTime.AddDays(6).ToString()).ToString("yyyy/MM/dd");
+                    s.id = Guid.NewGuid().GetHashCode();
                     item.AddShift(s);
                 }
             }
@@ -5262,7 +5278,7 @@ public static class WebDal
                     p.finishDate = DateTime.Parse(item["finishDate"].ToString());
                     p.finishDateEN = DateTime.Parse(item["finishDate"].ToString()).ToString("MM/dd/yyyy");
                     p.statusId = int.Parse(item["statusId"].ToString());
-
+                    
                     result.Add(p);
                 }
             }

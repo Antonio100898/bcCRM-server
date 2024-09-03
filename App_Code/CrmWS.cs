@@ -2369,7 +2369,6 @@ public class CrmWS : WebService
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
     public crmResponse UpdateWorkerSickday(string workerKey, WorkerSickDay sickday)
     {
-        //
         crmResponse result = new crmResponse();
 
         if (string.IsNullOrEmpty(workerKey))
@@ -2443,7 +2442,6 @@ public class CrmWS : WebService
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
     public crmResponse UpdateWorkerFreeday(string workerKey, WorkerFreeDay freeday)
     {
-        //
         crmResponse result = new crmResponse();
 
         if (string.IsNullOrEmpty(workerKey))
