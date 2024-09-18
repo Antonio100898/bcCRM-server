@@ -2319,13 +2319,8 @@ public class CrmWS : WebService
             return result;
         }
 
-        string s = WebDal.GetWorkerMissingShiftPlans(start);
-        if (string.IsNullOrEmpty(s))
-        {
-            s = "כל העובדים הגישו משמרות השבוע";
-        }
-        result.msg = s;
-
+        result.workerMissingShifts = WebDal.GetWorkerMissingShiftPlans(start);
+       
         result.success = true;
 
         return result;

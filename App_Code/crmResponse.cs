@@ -55,6 +55,7 @@ public class crmResponse
     public double workExpensesSum { get; set; }
     public List<ExpenseAndShiftWeek> ExpenseAndShiftsWeeks { get; set; }
     public List<OuterCompany> outerCompanies { get; set; }
+    public List<int> workerMissingShifts { get; set; }
 }
 
 public class crmLogin
@@ -321,7 +322,7 @@ public class shiftWeekReport
 public class ShiftDetail : ShiftPlan
 {
     public string shiftName { get; set; }
-
+    public long startDateUTC { get; set; }
     public int jobTypeId { get; set; }
     public string jobTypeName { get; set; }
     public string color { get; set; }

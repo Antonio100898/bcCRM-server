@@ -1,14 +1,11 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Web.Http.Results;
 
 public static class WebDal
 {
@@ -1783,7 +1780,10 @@ public static class WebDal
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     int id = int.Parse(row["id"].ToString());
-                    UpdateShiftOuterCompanies(shift.id, shift.outerCompanies);
+                    if (shift.outerCompanies != null)
+                    {
+                        UpdateShiftOuterCompanies(shift.id, shift.outerCompanies);
+                    }
                 }
             }
         }
@@ -1816,24 +1816,22 @@ public static class WebDal
         values.Add(new SqlParameter("@phone", shift.phone));
         values.Add(new SqlParameter("@address", shift.address));
 
-        UpdateShiftOuterCompanies(shift.id, shift.outerCompanies);
+        if (shift.outerCompanies != null) {
+            UpdateShiftOuterCompanies(shift.id, shift.outerCompanies);
+        }
+       
         Dal.ExecuteNonQuery(sql, values);
     }
 
-    internal static string GetWorkerMissingShiftPlans(DateTime start)
+    internal static List<int> GetWorkerMissingShiftPlans(DateTime start)
     {
-        string result = "";
         DateTime finish = start.AddDays(7);
-        string sql = "SELECT workers.[id],[firstName],[lastName],Sum(1) as c " +
-                    "FROM [dbo].[workers] left join shiftPlans on shiftPlans.workerId = workers.id " +
-                    "WHERE [wDepartmentId] = 16 AND((shiftPlans.date >= @startDate AND shiftPlans.date <= @finishDate) OR shiftPlans.date is null) " +
-                    "Group by workers.[id],[firstName],[lastName] " +
-                    "HAVING Sum(1)= 1 " +
-                    "order by firstName, lastName";
-        
-        sql = "SELECT workers.[id],[firstName],[lastName] " +
-             "FROM [dbo].[workers]  Left join(SELECT workerId FROM shiftPlans where ((date>= @startDate) AND(date <= @finishDate)) Group by workerId) as a on[workers].id = a.workerId " +
-             "WHERE [wDepartmentId] = 16 AND a.workerId is null " +
+
+        List<int> result = new List<int>();
+
+        string sql = "SELECT workers.[id],[firstName],[lastName] " +
+             "FROM [dbo].[workers] Left join(SELECT workerId FROM shiftPlans where ((date>= @startDate) AND(date <= @finishDate)) Group by workerId) as a on[workers].id = a.workerId " +
+             "WHERE [wDepartmentId] = 16 AND a.workerId is null AND workers.active = 1" +
               "order by firstName, lastName";
 
         List<SqlParameter> values = new List<SqlParameter>();
@@ -1848,9 +1846,7 @@ public static class WebDal
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    string s = row["firstName"].ToString() + " " + row["lastName"].ToString() + Environment.NewLine;
-
-                    result += s;
+                    result.Add(int.Parse(row["id"].ToString()));
                 }
             }
         }
@@ -2348,6 +2344,7 @@ public static class WebDal
                         m.workerId = int.Parse(item["workerId"].ToString());
                         m.workerName = item["workerName"].ToString();
                         m.startDate = DateTime.Parse(item["startDate"].ToString());
+                        m.startDateUTC = GetUnixTimestampInMilliseconds(DateTime.Parse(item["startDate"].ToString()));
                         m.startDateEN = DateTime.Parse(item["startDate"].ToString()).ToString("MM/dd/yyyy HH:mm:ss");
                         m.finishTime = DateTime.Parse(item["finishTime"].ToString());
                         m.finishTimeEN = DateTime.Parse(item["finishTime"].ToString()).ToString("MM/dd/yyyy HH:mm:ss");
@@ -2358,8 +2355,10 @@ public static class WebDal
                         m.contactName = item["contactName"].ToString();
                         m.phone = item["phone"].ToString();
                         m.address = item["address"].ToString();
-                        m.outerCompanies = GetShiftOuterCompanies(m.id);
-
+                        if (m.jobTypeId == 1 || m.jobTypeId == 4) {
+                            m.outerCompanies = GetShiftOuterCompanies(m.id);
+                        }
+                        
                         shiftWeek shiftWeek = weeks.Find(x => x.shiftType == m.shiftTypeId && x.jobType == m.jobTypeId);
                         if (shiftWeek == null)
                         {
@@ -2394,6 +2393,16 @@ public static class WebDal
         return weeks;
     }
 
+    internal static long GetUnixTimestampInMilliseconds(DateTime dateTime)
+    {
+        // Convert DateTime to UTC if it's not already
+        DateTime utcDateTime = dateTime.ToUniversalTime();
+
+        // Get the Unix timestamp in milliseconds
+        long unixTimestampInMilliseconds = (long)(utcDateTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
+
+        return unixTimestampInMilliseconds;
+    }
 
     internal static List<shiftWeek> GetShiftPlans(DateTime startTime, int workerId, int addDays = 7)
     {
@@ -5533,16 +5542,22 @@ public static class WebDal
 
     public static void UpdateShiftOuterCompanies(int shiftId, List<OuterCompany> outerCompanies)
     {
-       Dal.ExecuteNonQuery("DELETE FROM [dbo].[ShiftOuterCompanies] WHERE [ShiftOuterCompanies].[shiftId] = " + shiftId + ";");
+        try {
+            Dal.ExecuteNonQuery("DELETE FROM [dbo].[ShiftOuterCompanies] WHERE [ShiftOuterCompanies].[shiftId] = " + shiftId + ";");
 
-       string sql = "INSERT INTO [dbo].[ShiftOuterCompanies]([shiftId],[outerCompanyId]) VALUES(@shiftId,@outerCompanyId);";
+            string sql = "INSERT INTO [dbo].[ShiftOuterCompanies]([shiftId],[outerCompanyId]) VALUES(@shiftId,@outerCompanyId);";
 
-        foreach (OuterCompany comp in outerCompanies) {
-            List<SqlParameter> values = new List<SqlParameter>();
-            values.Add(new SqlParameter("@shiftId", shiftId));
-            values.Add(new SqlParameter("@outerCompanyId", comp.id));
-            Dal.ExecuteNonQuery(sql, values);
+            foreach (OuterCompany comp in outerCompanies)
+            {
+                List<SqlParameter> values = new List<SqlParameter>();
+                values.Add(new SqlParameter("@shiftId", shiftId));
+                values.Add(new SqlParameter("@outerCompanyId", comp.id));
+                Dal.ExecuteNonQuery(sql, values);
+            }
         }
+        catch (Exception ex) {
+        }
+      
     }
 
     public static void UpdateNivServer(Problem problem)
