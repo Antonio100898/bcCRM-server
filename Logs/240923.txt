@@ -1,0 +1,36 @@
+23/09/24 11:56  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);SELECT SCOPE_IDENTITY()
+
+23/09/24 11:56  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);SELECT SCOPE_IDENTITY()
+
+23/09/24 12:01  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);SELECT SCOPE_IDENTITY()
+
+23/09/24 12:03  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);SELECT SCOPE_IDENTITY()
+
+23/09/24 12:10  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);SELECT SCOPE_IDENTITY()
+
+23/09/24 12:13  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);
+
+23/09/24 12:16  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);
+
+23/09/24 12:19  ExecuteScalar Exception Message: The parameterized query '(@workerId int,@startDate datetime,@finishDate datetime,@fileNam' expects the parameter '@fileName', which was not supplied.
+. extraInfo: sql: INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES (@workerId,@startDate,@finishDate,@fileName);
+
+23/09/24 12:52  ExecuteNonQuery Exception Message: Invalid column name 'date'.
+. extraInfo: sql: UPDATE [dbo].[workersSickday] SET [workerId] = @workerId, [startDate] = @startDate, [finishDate] = @finishDate, [date] = @startDate, [fileName] = @fileName WHERE id = @id
+
+23/09/24 12:53  ExecuteNonQuery Exception Message: Invalid column name 'date'.
+. extraInfo: sql: UPDATE [dbo].[workersSickday] SET [workerId] = @workerId, [startDate] = @startDate, [finishDate] = @finishDate, [date] = @startDate, [fileName] = @fileName WHERE id = @id
+
+23/09/24 12:56  ExecuteNonQuery Exception Message: Invalid column name 'date'.
+. extraInfo: sql: UPDATE [dbo].[workersSickday] SET [workerId] = @workerId, [startDate] = @startDate, [finishDate] = @finishDate, [date] = @startDate, [fileName] = @fileName WHERE id = @id
+
+23/09/24 15:47  GetDataSet Exception Message: Must declare the scalar variable "@workerId".
+. extraInfo: sql: SELECT [id] FROM [dbo].[shiftsDetails] WHERE workerId = @workerId AND startDate = @startDate AND shiftGroupId = @shiftGroupId AND shiftTypeId = @shiftTypeId AND jobTypeId = @jobTypeId;
+

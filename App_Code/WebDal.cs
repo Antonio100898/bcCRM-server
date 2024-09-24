@@ -5126,6 +5126,9 @@ public static class WebDal
         {
             sickDay.fileName = SaveSickDayFile(sickDay, serverMapPath);
         }
+        else {
+            sickDay.fileName = "";
+        }
 
         var remoteTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Israel Standard Time");
         sickDay.startDate = TimeZoneInfo.ConvertTime(sickDay.startDate, remoteTimeZone);
@@ -5133,28 +5136,21 @@ public static class WebDal
 
 
         string sql = "INSERT INTO [dbo].[workersSickday] ([workerId],[startDate],[finishDate],[fileName]) VALUES " +
-                     "(@workerId,@startDate,@finishDate,@fileName);" +
-                     "SELECT SCOPE_IDENTITY()";
-
+                     "(@workerId,@startDate,@finishDate,@fileName);";
+                    
         List<SqlParameter> values = new List<SqlParameter>();
         values.Add(new SqlParameter("@workerId", sickDay.workerId));
         values.Add(new SqlParameter("@startDate", sickDay.startDate));
         values.Add(new SqlParameter("@finishDate", sickDay.finishDate));
         values.Add(new SqlParameter("@fileName", sickDay.fileName));
 
-        object o = Dal.ExecuteScalar(sql, values);
-        int newId = 0;
-        if (o != null)
-        {
-            newId = int.Parse(o.ToString());
-        }
-
+        Dal.ExecuteScalar(sql, values);
     }
 
     internal static void UpdateWorkerSickday(WorkerSickDay sickDay)
     {
         string sql = "UPDATE [dbo].[workersSickday] SET " +
-                            "[workerId] = @workerId, [startDate] = @startDate, [finishDate] = @finishDate, [date] = @startDate, [fileName] = @fileName " +
+                            "[workerId] = @workerId, [startDate] = @startDate, [finishDate] = @finishDate, [fileName] = @fileName " +
                             "WHERE id = @id";
 
         List<SqlParameter> values = new List<SqlParameter>();
