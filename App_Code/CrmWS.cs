@@ -2195,8 +2195,9 @@ public class CrmWS : WebService
             return result;
         }
 
-        //var remoteTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Israel Standard Time");
-        //startTime = TimeZoneInfo.ConvertTime(startTime, remoteTimeZone);
+        var remoteTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Israel Standard Time");
+        shiftDetail.startDate = TimeZoneInfo.ConvertTime(shiftDetail.startDate, remoteTimeZone);
+        shiftDetail.finishTime = TimeZoneInfo.ConvertTime(shiftDetail.finishTime, remoteTimeZone);
         shiftDetail.shiftGroupId = shiftGroupId;
         if (shiftDetail.id == 0)
         {
@@ -2803,7 +2804,6 @@ public class CrmWS : WebService
         try
         {
             result.outerCompanies = WebDal.GetOuterCompanies();
-
             result.success = true;
         }
         catch (Exception e)

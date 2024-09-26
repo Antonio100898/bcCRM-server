@@ -1,0 +1,15 @@
+26/09/24 10:28  GetDataSet Exception Message: Must declare the scalar variable "@workerId".
+. extraInfo: sql: SELECT [id] FROM [dbo].[shiftsDetails] WHERE workerId = @workerId AND startDate = @startDate AND shiftGroupId = @shiftGroupId AND shiftTypeId = @shiftTypeId AND jobTypeId = @jobTypeId;
+
+26/09/24 10:37  GetDataSet Exception Message: Must declare the scalar variable "@workerId".
+. extraInfo: sql: SELECT [id] FROM [dbo].[shiftsDetails] WHERE workerId = @workerId AND startDate = @startDate AND shiftGroupId = @shiftGroupId AND shiftTypeId = @shiftTypeId AND jobTypeId = @jobTypeId;
+
+26/09/24 12:21  GetDataSet Exception Message: Must declare the scalar variable "@workerId".
+. extraInfo: sql: SELECT [id] FROM [dbo].[shiftsDetails] WHERE workerId = @workerId AND startDate = @startDate AND shiftGroupId = @shiftGroupId AND shiftTypeId = @shiftTypeId AND jobTypeId = @jobTypeId;
+
+26/09/24 16:35  GetDataSet Exception Message: Must declare the scalar variable "@workerId".
+. extraInfo: sql: SELECT [id] FROM [dbo].[shiftsDetails] WHERE workerId = @workerId AND startDate = @startDate AND shiftGroupId = @shiftGroupId AND shiftTypeId = @shiftTypeId AND jobTypeId = @jobTypeId;
+
+26/09/24 16:38  GetDataSet Exception Message: Must declare the scalar variable "@workerId".
+. extraInfo: sql: SELECT [id] FROM [dbo].[shiftsDetails] WHERE workerId = @workerId AND startDate = @startDate AND shiftGroupId = @shiftGroupId AND shiftTypeId = @shiftTypeId AND jobTypeId = @jobTypeId;
+

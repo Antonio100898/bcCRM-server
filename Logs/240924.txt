@@ -1,3 +1,23 @@
 24/09/24 13:40  GetDataSet Exception Message: Must declare the scalar variable "@workerId".
 . extraInfo: sql: SELECT [id] FROM [dbo].[shiftsDetails] WHERE workerId = @workerId AND startDate = @startDate AND shiftGroupId = @shiftGroupId AND shiftTypeId = @shiftTypeId AND jobTypeId = @jobTypeId;
 
+24/09/24 16:28  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: 0c2cbaa3-b0b4-4003-a810-6c38b158b20c phone: 0524721072
+
+24/09/24 16:28  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: 0c2cbaa3-b0b4-4003-a810-6c38b158b20c phone: 0506000453
+
+24/09/24 16:28  CallThisNumber Exception Message: Unable to connect to the remote server
+. InnerException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 199.203.227.131:6560
+. extraInfo: workerKey: 0c2cbaa3-b0b4-4003-a810-6c38b158b20c phone: 0506000453
+
+24/09/24 16:33  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+. InnerException: The network path was not found
+. extraInfo: sql: SELECT [id], [groupName], [databaseName] FROM [dbo].[Groups] ORDER BY [groupName];
+
+24/09/24 16:33  GetDataSet Exception Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+. InnerException: The network path was not found
+. extraInfo: sql: SELECT [Id],[name] FROM [dbo].[cities] order by [name];
+
