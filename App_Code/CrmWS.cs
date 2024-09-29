@@ -2154,7 +2154,6 @@ public class CrmWS : WebService
 
             foreach (ShiftPlan shiftPlan in shiftPlans)
             {
-                shiftPlan.workerId = workerId;
                 if (shiftPlan.id == 0)
                 {
                     WebDal.AppendShiftPlan(shiftPlan);
