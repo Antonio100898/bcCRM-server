@@ -1330,7 +1330,7 @@ public static class WebDal
         }
 
 
-        DataTable dtWorkres = GetWorkersDS().Tables[0];
+        DataTable dtWorkres = GetWorkersDS(true).Tables[0];
         List<ezshiftWS.EZShift_Attended> shifts = GetEzShiftWorkers(startDate, finishDate);
         foreach (var item in shifts)
         {
@@ -3043,7 +3043,7 @@ public static class WebDal
         List<ProblemLog> result = new List<ProblemLog>();
         DataSet ds = GetLogsDs(problemId);
 
-        DataTable dsWorkers = WebDal.GetWorkersDS().Tables[0];
+        DataTable dsWorkers = WebDal.GetWorkersDS(true).Tables[0];
 
         if (ds != null)
         {
@@ -4291,11 +4291,11 @@ public static class WebDal
         return result;
     }
 
-    public static List<Worker> GetWorkers()
+    public static List<Worker> GetWorkers(bool onlyActive)
     {
         List<Worker> result = new List<Worker>();
 
-        DataSet ds = GetWorkersDS();
+        DataSet ds = GetWorkersDS(onlyActive);
 
         if (ds.Tables.Count > 0)
         {
@@ -4338,7 +4338,7 @@ public static class WebDal
     {
         List<Worker> result = new List<Worker>();
 
-        DataSet ds = GetWorkersDS();
+        DataSet ds = GetWorkersDS(true);
 
         if (ds.Tables.Count > 0)
         {
@@ -4480,7 +4480,7 @@ public static class WebDal
     {
         List<WorkerBase> result = new List<WorkerBase>();
 
-        DataSet ds = GetWorkersDS();
+        DataSet ds = GetWorkersDS(true);
         if (ds.Tables.Count > 0)
         {
             if (ds.Tables[0].Rows.Count > 0)
@@ -4600,13 +4600,31 @@ public static class WebDal
     }
 
 
-    public static DataSet GetWorkersDS()
+    public static DataSet GetWorkersDS(bool onlyActive)
+    {
+        List<Worker> result = new List<Worker>();
+
+        string activeFilter = "";
+        if (onlyActive) {
+            activeFilter = "WHERE [active]=1 ";
+        }
+
+        string sql = "SELECT workers.[id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId], [active], [imgPath], [shluha], [wDepartmentId], [departmentName], jobTitle, workerLevel, carType, carNumber, teudatZehut, marselWorkerCode, ezShiftWorkerCode " +
+                    "FROM workers inner join departments on workers.wDepartmentId= departments.id " +
+                    activeFilter +
+                    "order by firstname, lastname";
+
+        DataSet ds = Dal.GetDataSet(sql);
+
+        return ds;
+    }
+
+    public static DataSet GetAllWorkersDS()
     {
         List<Worker> result = new List<Worker>();
 
         string sql = "SELECT workers.[id], [firstName], [lastName], [phone], [birthDay], [workerTypeID], [userName], [password], [userTypeId], [active], [imgPath], [shluha], [wDepartmentId], [departmentName], jobTitle, workerLevel, carType, carNumber, teudatZehut, marselWorkerCode, ezShiftWorkerCode " +
                     "FROM workers inner join departments on workers.wDepartmentId= departments.id " +
-                    "WHERE [active]=1 " +
                     "order by firstname, lastname";
 
         DataSet ds = Dal.GetDataSet(sql);
@@ -5359,7 +5377,7 @@ public static class WebDal
 
         string sql = "INSERT INTO [dbo].[shiftDaysRemarks] ([dateValue],[remark],[shiftGroupId]) VALUES " +
                      "(@dateValue,@remark,@shiftGroupId);" +
-                     "SELECT SCOPE_IDENTITY()"; ;
+                     "SELECT SCOPE_IDENTITY()";
 
 
         List<SqlParameter> values = new List<SqlParameter>();

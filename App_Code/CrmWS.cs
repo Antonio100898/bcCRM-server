@@ -636,7 +636,7 @@ public class CrmWS : WebService
 
     [WebMethod]
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
-    public crmResponse GetWorkers(string workerKey)
+    public crmResponse GetWorkers(string workerKey, bool onlyActive)
     {
         crmResponse result = new crmResponse();
 
@@ -648,11 +648,12 @@ public class CrmWS : WebService
             return result;
         }
 
-        result.workers = WebDal.GetWorkers();
+        result.workers = WebDal.GetWorkers(onlyActive);
         result.workers.Add(new Worker { Id = 0, firstName = "כולם" });
         result.success = true;
         return result;
     }
+
 
     [WebMethod]
     [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]

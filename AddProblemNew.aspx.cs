@@ -164,7 +164,7 @@ public partial class AddProblemNew : System.Web.UI.Page
     [WebMethod]
     public static string GetWorkers()
     {
-        return WebDal.GetWorkersDS().GetXml();
+        return WebDal.GetWorkersDS(true).GetXml();
     }
 
 
@@ -453,7 +453,7 @@ public partial class AddProblemNew : System.Web.UI.Page
         DataTable dtResult = new DataTable();
         //[id],[groupKey],[problemId],[workerId],firstName + ' ' + lastName as workerName,[fieldName],[originalValue],[newValue],[commitTime]
         DataSet ds = WebDal.GetLogsDs(problemId);
-        DataTable dsWorkers = WebDal.GetWorkersDS().Tables[0];
+        DataTable dsWorkers = WebDal.GetWorkersDS(true).Tables[0];
 
         if (ds != null)
         {
