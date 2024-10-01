@@ -2396,7 +2396,8 @@ public class CrmWS : WebService
             }
             else
             {
-                WebDal.UpdateWorkerSickday(sickday);
+                string path = Server.MapPath("~/") + "Pics\\sickDays\\";
+                WebDal.UpdateWorkerSickday(sickday, path);
             }
 
         }

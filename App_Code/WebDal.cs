@@ -5165,11 +5165,23 @@ public static class WebDal
         Dal.ExecuteScalar(sql, values);
     }
 
-    internal static void UpdateWorkerSickday(WorkerSickDay sickDay)
+    internal static void UpdateWorkerSickday(WorkerSickDay sickDay , string serverMapPath)
     {
-        string sql = "UPDATE [dbo].[workersSickday] SET " +
+        string sql = "";
+        if (!string.IsNullOrEmpty(sickDay.imgContent))
+        {
+            sickDay.fileName = SaveSickDayFile(sickDay, serverMapPath);
+            sql = "UPDATE [dbo].[workersSickday] SET " +
                             "[workerId] = @workerId, [startDate] = @startDate, [finishDate] = @finishDate, [fileName] = @fileName " +
                             "WHERE id = @id";
+        }
+        else
+        {
+            sql = "UPDATE [dbo].[workersSickday] SET " +
+                           "[workerId] = @workerId, [startDate] = @startDate, [finishDate] = @finishDate " +
+                           "WHERE id = @id";
+        }
+       
 
         List<SqlParameter> values = new List<SqlParameter>();
         values.Add(new SqlParameter("@id", sickDay.id));
