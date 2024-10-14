@@ -1962,6 +1962,9 @@ public static class WebDal
 
     internal static void UpdateShiftPlan(ShiftPlan shiftPlan)
     {
+        var remoteTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Israel Standard Time");
+        shiftPlan.startDate = TimeZoneInfo.ConvertTime(shiftPlan.startDate, remoteTimeZone);
+
         if (string.IsNullOrEmpty(shiftPlan.remark))
         {
             shiftPlan.remark = " ";
