@@ -64,7 +64,7 @@ public class CrmWS : WebService
         result.imgPath = w.imgPath;
         result.workers = WebDal.GetWorkersBase();
         result.problemTypes = WebDal.GetProblemTypes();
-        result.problems = WebDal.GetProblemsList("-1", w.Id);
+        //result.problems = WebDal.GetProblemsList("-1", w.Id);
         result.summery = WebDal.GetProblemsCountsummery(w.Id);
 
         return result;
