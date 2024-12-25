@@ -65,6 +65,7 @@ public class Problem: RequestBase
     public int updaterWorkerDepartmentId { get; set; }
     public List<int> toWorkers { get; set; }
     public List<ProblemType> problemTypesList { get; set; }
+    public int trackingId { get; set; }
 
     public Problem()
     {

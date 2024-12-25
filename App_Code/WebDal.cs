@@ -861,7 +861,7 @@ public static class WebDal
         string trakingWorker = "";
         if (workerId > 0)
         {
-            trakingWorker = "LEFT JOIN(SELECT[problemId] FROM [dbo].[problemTracking] WHERE workerId = @workerId GROUP BY [problemId]) tTracking ON problemsClose.id = tTracking.problemId ";
+            trakingWorker = "LEFT JOIN(SELECT IIF([id] = NULL, 0,[id]) as id, [problemId] FROM [dbo].[problemTracking] WHERE workerId = @workerId) tTracking ON problemsClose.id = tTracking.problemId ";
         }
 
         string workerProblem = "";
@@ -874,7 +874,7 @@ public static class WebDal
                         "Group by  problemWorkers.problemId) pt on problemsClose.id = pt.problemId;";
         //}
 
-        string sql = "SELECT " + top + " problemsClose.id, problemsClose.workerId, problemsClose.phoneId, problemsClose.phone, problemsClose.ip, problemsClose.placeNameId, problemsClose.placeName, problemsClose.customerName, problemsClose.problemDesc, problemsClose.problemSolution, problemsClose.statusId, problemsClose.emergencyId, problemsClose.departmentId, problemsClose.reportToYaron, problemsClose.startTime, problemsClose.finishTime, problemStatus.statusName, workers.firstName + N' ' + workers.lastName AS workerName, departments.departmentName, problemsClose.toWorker, workers_1.firstName + N' ' + workers_1.lastName AS toWorkerName, workers_1.jobTitle as toWorkerJobTitle, tFiles.[fileCount], tFiles.filesName, problemWorkers.workerId as toWorkersId, updaterWorkerId, workers_2.firstName + N' ' + workers_2.lastName AS updateWorkerName, workers_2.wDepartmentId as updateWorkerDepartment, places.vip, problemsClose.takingCare, problemsClose.isLocked, problemsClose.callCustomerBack, problemTypesInfo, pt.pCount as isInvolved " +
+        string sql = "SELECT " + top + " tTracking.id as trackingId, problemsClose.id, problemsClose.workerId, problemsClose.phoneId, problemsClose.phone, problemsClose.ip, problemsClose.placeNameId, problemsClose.placeName, problemsClose.customerName, problemsClose.problemDesc, problemsClose.problemSolution, problemsClose.statusId, problemsClose.emergencyId, problemsClose.departmentId, problemsClose.reportToYaron, problemsClose.startTime, problemsClose.finishTime, problemStatus.statusName, workers.firstName + N' ' + workers.lastName AS workerName, departments.departmentName, problemsClose.toWorker, workers_1.firstName + N' ' + workers_1.lastName AS toWorkerName, workers_1.jobTitle as toWorkerJobTitle, tFiles.[fileCount], tFiles.filesName, problemWorkers.workerId as toWorkersId, updaterWorkerId, workers_2.firstName + N' ' + workers_2.lastName AS updateWorkerName, workers_2.wDepartmentId as updateWorkerDepartment, places.vip, problemsClose.takingCare, problemsClose.isLocked, problemsClose.callCustomerBack, problemTypesInfo, pt.pCount as isInvolved " +
                      "FROM problemsClose LEFT JOIN " +
                           "workers ON problemsClose.workerId = workers.id INNER JOIN " +
                           "problemStatus ON problemsClose.statusId = problemStatus.id INNER JOIN " +
@@ -974,6 +974,12 @@ public static class WebDal
 
                 continue;
             }
+            string trackingId = item["trackingId"].ToString();
+
+            if (string.IsNullOrEmpty(trackingId))
+                p.trackingId = 0;
+            else
+                p.trackingId =int.Parse(trackingId);
 
             p.workerCreateId = int.Parse(item["workerId"].ToString());
             p.workerCreateName = item["workerName"].ToString();
@@ -4971,7 +4977,7 @@ public static class WebDal
             p.finishTime = DateTime.Parse(item["finishTime"].ToString()).ToString("dd/MM/yy HH:mm");
             p.startTimeEN = DateTime.Parse(item["startTime"].ToString()).ToString("MM/dd/yy HH:mm");
             p.finishTimeEN = DateTime.Parse(item["finishTime"].ToString()).ToString("MM/dd/yy HH:mm");
-
+            
             p.takingCare = bool.Parse(item["takingCare"].ToString());
             p.isLocked = bool.Parse(item["isLocked"].ToString());
 
